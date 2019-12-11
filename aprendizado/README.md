@@ -1,4 +1,4 @@
-# Estudo
+# Recursos de Aprendizagem
 
 ## Kaggle
 
@@ -32,7 +32,7 @@ A "Ciência de Dados" envolve muitos conceitos.
 
 * [Python](https://docs.python.org/3/)
   * [scikit-learn](https://scikit-learn.org/stable/)
-  * [pandas](https://pandas.pydata.org/))
+  * [pandas](https://pandas.pydata.org/)
   * [NumPy](https://numpy.org/)
 * [R](https://www.r-project.org/about.html)
 
