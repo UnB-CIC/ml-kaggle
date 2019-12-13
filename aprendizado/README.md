@@ -12,13 +12,13 @@ A "Ciência de Dados" envolve muitos conceitos.
 
 * Álgebra
 * Cálculo
-* [Data Science Math Skills](https://www.coursera.org/learn/datasciencemathskills)
+* [Data Science Math Skills](https://www.coursera.org/learn/datasciencemathskills) (Coursera)
 
 ### Estatística
 
 * Probabilidade
 * Estatística
-  * [Introduction to Statistics for Data Science](https://www.kdnuggets.com/2018/12/introduction-statistics-data-science.html)
+  * [Introduction to Statistics for Data Science](https://www.kdnuggets.com/2018/12/introduction-statistics-data-science.html) (KDNuggets)
 
 ### Ciência da Computação
 
@@ -29,7 +29,7 @@ A "Ciência de Dados" envolve muitos conceitos.
   * [CS188 Intro to AI](http://ai.berkeley.edu/lecture_videos.html) (Berkeley)
   * [Artificial Intelligence](https://www.edx.org/course/artificial-intelligence-ai) (edX)
 * Aprendizagem de Máquina
-  * [Introduction to Machine Learning Problem Framing](https://developers.google.com/machine-learning/problem-framing/)
+  * [Introduction to Machine Learning Problem Framing](https://developers.google.com/machine-learning/problem-framing/) (Google)
   * [Machine Learning](https://www.coursera.org/learn/machine-learning#instructors) (Coursera)
 * Visualização de Dados
 
@@ -40,6 +40,9 @@ A "Ciência de Dados" envolve muitos conceitos.
   * [pandas](https://pandas.pydata.org/)
   * [NumPy](https://numpy.org)
   * [matplotlib](https://matplotlib.org/)
+    * [Intermediate Python for Data Science](https://www.datacamp.com/courses/intermediate-python-for-data-science) (Data Camp)
+  * [Seaborn](https://seaborn.pydata.org/)
+    * [Python Seaborn Tutorial For Beginners](https://www.datacamp.com/community/tutorials/seaborn-python-tutorial) (Data Camp)
 * [R](https://www.r-project.org/about.html)
 
 # Rascunho
@@ -48,4 +51,3 @@ Outros recursos interessantes.
 
 * [KD Nuggets](https://www.kdnuggets.com/)
 * [Machine Learning in Python](https://www.springboard.com/resources/learning-paths/machine-learning-python/)
-
