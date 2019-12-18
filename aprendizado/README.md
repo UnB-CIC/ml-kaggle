@@ -2,7 +2,7 @@
 
 ## Kaggle
 
-O primeiro passo é uma [noção genérica](https://www.kaggle.com/learn/overview) do Kaggle.
+O primeiro passo é uma [noção genérica](https://www.kaggle.com/learn/overview) do Kaggle e como uma [competição](https://www.kaggle.com/docs/competitions) funciona.
 
 ## Teoria
 
@@ -35,14 +35,7 @@ A "Ciência de Dados" envolve muitos conceitos.
 
 ### Programação
 
-* [Python](https://docs.python.org/3/)
-  * [scikit-learn](https://scikit-learn.org/stable/)
-  * [pandas](https://pandas.pydata.org/)
-  * [NumPy](https://numpy.org)
-  * [matplotlib](https://matplotlib.org/)
-    * [Intermediate Python for Data Science](https://www.datacamp.com/courses/intermediate-python-for-data-science) (Data Camp)
-  * [Seaborn](https://seaborn.pydata.org/)
-    * [Python Seaborn Tutorial For Beginners](https://www.datacamp.com/community/tutorials/seaborn-python-tutorial) (Data Camp)
+* [Python](python.md)
 * [R](https://www.r-project.org/about.html)
 
 # Rascunho
@@ -50,4 +43,3 @@ A "Ciência de Dados" envolve muitos conceitos.
 Outros recursos interessantes.
 
 * [KD Nuggets](https://www.kdnuggets.com/)
-* [Machine Learning in Python](https://www.springboard.com/resources/learning-paths/machine-learning-python/)
