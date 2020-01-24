@@ -1,4 +1,4 @@
-# Felloship of Data Science Experts (FoDaSE)
+# Felloship of Data Science Experts
 
 Grupo de Estudos em Aprendizado de Máquina
 
@@ -8,7 +8,7 @@ O objetivo do grupo de estudos é difundir os conhecimentos básicos em Aprendiz
 
 ## Programa
 
-O grupo de estudos será realizado quinzenalmente às quartas-feiras das 16 às 18 horas no Laboratório de Raciocínio Automatizado (LARA). O programa do grupo de estudos engloba os seguintes tópicos:
+O grupo de estudos será realizado quinzenalmente às terças-feiras das 16 às 18 horas no Laboratório de Raciocínio Automatizado (LARA). O programa do grupo de estudos engloba os seguintes tópicos:
 
 * Python e suas bibliotecas
 * Conceitos básicos em Aprendizado de Máquina e Mineração de Dados 
@@ -21,11 +21,11 @@ Como parte das tarefas do grupo de estudos estão o desenvolvimento de pacotes, 
 
 ## Organização do repositório
 
-* [Aprendizado](aprendizado): conteúdo para aprendizado de ML, programação, Kaggle, etc.
-* [Competições](competitions): soluções para as competições.
+* [Aprendizado](aprendizado): Conteúdo de Python e Aprendizado de Máquina.
+* [Competições](competitions): Soluções para as competições do Kaggle.
 
 ## Bibliografia
 
-Tom M. Mitchell, Machine Learning,  McGraw-Hill, 1a. edição (1997)
-Simon Haykin, Redes Neurais: Princípios e Prática, Bookman, 2a. edição (2003) 
-André Carvalho, Inteligência Artificial - Uma Abordagem de Aprendizado de Máquina, LTC, 1a. edição (2011)
+Tom M. Mitchell, Machine Learning,  McGraw-Hill, 1a. edition (1997)
+Simon Haykin, Neural Networks: A Comprehensive Foundation, Prentice Hall, 2a. edition (1998) 
+Christopher M. Bishop, attern Recognition and Machine Learning, Springer, (2011)
