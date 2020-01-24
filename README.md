@@ -1,4 +1,4 @@
-# Felloship of Data Science Experts
+# Fellowship of Data Science Experts
 
 Grupo de Estudos em Aprendizado de Máquina
 
@@ -8,7 +8,7 @@ O objetivo do grupo de estudos é difundir os conhecimentos básicos em Aprendiz
 
 ## Programa
 
-O grupo de estudos será realizado quinzenalmente às terças-feiras das 16 às 18 horas no Laboratório de Raciocínio Automatizado (LARA). O programa do grupo de estudos engloba os seguintes tópicos:
+O grupo de estudos será realizado quinzenalmente às terças-feiras das 16 às 18 horas no _Laboratório de Raciocínio Automatizado_ (LARA). O programa do grupo de estudos engloba os seguintes tópicos:
 
 * Python e suas bibliotecas
 * Conceitos básicos em Aprendizado de Máquina e Mineração de Dados 
@@ -26,6 +26,6 @@ Como parte das tarefas do grupo de estudos estão o desenvolvimento de pacotes, 
 
 ## Bibliografia
 
-* Tom M. Mitchell, Machine Learning,  McGraw-Hill, 1a. edition (1997)
-* Simon Haykin, Neural Networks: A Comprehensive Foundation, Prentice Hall, 2a. edition (1998) 
-* Christopher M. Bishop, attern Recognition and Machine Learning, Springer, (2011)
+* [Tom M. Mitchell](http://www.cs.cmu.edu/~tom/), [Machine Learning](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf),  McGraw-Hill, 1a. edition (1997)
+* [Simon Haykin](http://soma.mcmaster.ca/haykin.php), [Neural Networks: A Comprehensive Foundation](http://cdn.preterhuman.net/texts/science_and_technology/artificial_intelligence/Neural%20Networks%20-%20A%20Comprehensive%20Foundation%20-%20Simon%20Haykin.pdf), Prentice Hall, 2a. edition (1998) 
+* [Christopher M. Bishop](https://www.microsoft.com/en-us/research/people/cmbishop/), [Pattern Recognition and Machine Learning](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf), Springer, (2011)
