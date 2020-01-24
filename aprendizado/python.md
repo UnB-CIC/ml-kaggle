@@ -28,6 +28,7 @@ A [matplotlib](https://matplotlib.org/) é uma biblioteca para gerar gráficos 2
 * [Make your Data Talk!](https://towardsdatascience.com/make-your-data-talk-13072f84eeac).
 * [Intermediate Python for Data Science](https://www.datacamp.com/courses/intermediate-python-for-data-science) (Data Camp)
 * [Python Seaborn Tutorial For Beginners](https://www.datacamp.com/community/tutorials/seaborn-python-tutorial) (Data Camp)
+* [PythonDataScienceHandbook](https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html)
 
 ## SKLearn
 
