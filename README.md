@@ -26,6 +26,6 @@ Como parte das tarefas do grupo de estudos estão o desenvolvimento de pacotes, 
 
 ## Bibliografia
 
-Tom M. Mitchell, Machine Learning,  McGraw-Hill, 1a. edition (1997)
-Simon Haykin, Neural Networks: A Comprehensive Foundation, Prentice Hall, 2a. edition (1998) 
-Christopher M. Bishop, attern Recognition and Machine Learning, Springer, (2011)
+* Tom M. Mitchell, Machine Learning,  McGraw-Hill, 1a. edition (1997)
+* Simon Haykin, Neural Networks: A Comprehensive Foundation, Prentice Hall, 2a. edition (1998) 
+* Christopher M. Bishop, attern Recognition and Machine Learning, Springer, (2011)
