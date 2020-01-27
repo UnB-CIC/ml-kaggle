@@ -1,11 +1,12 @@
 # Recursos de Aprendizagem
 
 * [Kaggle](kaggle.md)
-* [Python](python.md)
+* [Python](python/README.md)
 * [Aprendizado de Máquina](machinelearning.md)
-* [Classificação](classification.md)
+* [Classificação](classification/README.md)
 
 ## Outros Recursos
+
 * Matemática
   * Álgebra
   * Cálculo
