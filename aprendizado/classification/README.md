@@ -16,13 +16,13 @@ Formalmente uma AD é um grafo acíclico direcionado em cada nó é um nó de de
 
 A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos (x_1 e x_2). Cada nó da árvore corresponde a uma região nesse espaço. As regiões nos nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e parapelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
 
-[Exemplo de uma Árvore de Decisão][]
+![Exemplo de uma Árvore de Decisão](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad.png)
 
 ### Algoritmo
 
 O algoritmo de AD é mostrado na Figura a seguir. A entrada para afunção é o conjunto de treinamento **D** e sua saída é uma AD. Na sequencia o critério de parada é avaliado. Se mais divisões do conjunto de treinamento são necessárias, é escolhido um atributo que maximiza alguma medida de impureza. Na sequencia a função de geração da árvore é chamada recursivamente e aplicada a uma partição do conjunto de treinamento **D**.
 
-[Algoritmo de uma Árvore de Decisão][]
+![Algoritmo de uma Árvore de Decisão](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad_alg.png)
 
 É importante dizer que a geração de uma árvore minila é um problema NP-completo. Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomanda ela nunca é desfeita. Isso pode gerar uma solução ótima localmente o que pode estar longe do ótimo global. 
 
