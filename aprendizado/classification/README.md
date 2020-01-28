@@ -2,32 +2,49 @@
 
 ## Árvores de Decisão e Regressão
 
-As Árvores de Decisão e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de devisão e consquista, que recursivamente tende a diminuir a complexidade do problema tornando-o mais simples. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.   
+As Árvores de Decisão e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de devisão e consquista que recursivamente tende a diminuir a complexidade do problema tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.   
 
 ### Componentes de uma AD
 
-Formalmente uma AD é um grafo acíclico direcionado em cada nó é um nó de devisão ou um nó folha:
+Formalmente uma AD é um grafo acíclico direcionado em que cada nó é um nó de divisão ou um nó folha:
 
-* **Nó de divisão:** Possui dois ou mais sucessores. Contém teste condicional baseado nos valores dos atributos. Normalmente o teste é univariado, ou seja, em um único atributo. Exemplo: Idade > 18, Profissão &#8712; {professor, estudante}, 0.3 + 0.2x – 0.5x² &#8924; 0
+* **Nó de divisão:** Possui dois ou mais sucessores. Ele contém um teste condicional baseado nos valores dos atributos. Normalmente o teste é univariado, ou seja, em um único atributo. Exemplo: Idade > 18, Profissão &#8712; {professor, estudante}, 0.3 + 0.2x – 0.5x² &#8804; 0
 
-* **Nó folha:** É rotulado com uma função que considera valores da variável alvo dos exemplos que chegam na folha. Em uma AD de classificação podemos usar uma função de minimização de custo 0-1 como a moda. Em AD de regressão minimizando erro médio quadrático ou desvio absoluto. Exemplo: média/mediana
+* **Nó folha:** É rotulado com uma função que considera valores da variável alvo dos exemplos que chegam na folha. Em uma AD de classificação podemos usar uma função de minimização de custo 0-1 como a moda. Em AR de regressão podemos usar uma função de minimização do erro médio quadrático ou desvio absoluto. Exemplo: média/mediana
 
 ### Uma AD genérica
 
-A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos (x_1 e x_2). Cada nó da árvore corresponde a uma região nesse espaço. As regiões nos nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e parapelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
+A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos (x<sub>1</sub> e x<sub>2</sub>). Cada nó da árvore corresponde a uma região nesse espaço. As regiões nos nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e parapelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
 
-![Exemplo de uma Árvore de Decisão](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad.png)
+![](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad.png) *Exemplo de uma Árvore de Decisão. Adaptado de Katti Faceli et al., (2011)*
 
 ### Algoritmo
 
-O algoritmo de AD é mostrado na Figura a seguir. A entrada para afunção é o conjunto de treinamento **D** e sua saída é uma AD. Na sequencia o critério de parada é avaliado. Se mais divisões do conjunto de treinamento são necessárias, é escolhido um atributo que maximiza alguma medida de impureza. Na sequencia a função de geração da árvore é chamada recursivamente e aplicada a uma partição do conjunto de treinamento **D**.
+O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o conjunto de treinamento **D** e sua saída é uma AD. Na sequencia o critério de parada é avaliado. Se mais divisões do conjunto de treinamento são necessárias, é escolhido um atributo que maximiza alguma medida de impureza. Na sequencia a função de geração da árvore é chamada recursivamente e aplicada a uma partição do conjunto de treinamento **D**.
 
-![Algoritmo de uma Árvore de Decisão](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad_alg.png)
+![](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad_alg.png) *Algoritmo de uma Árvore de Decisão. Adaptado de Katti Faceli et al., (2011)*
 
-É importante dizer que a geração de uma árvore minila é um problema NP-completo. Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomanda ela nunca é desfeita. Isso pode gerar uma solução ótima localmente o que pode estar longe do ótimo global. 
+É importante dizer que a geração de uma árvore minimal é um problema NP-completo. Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomanda ela nunca é desfeita. Isso pode gerar uma solução ótima localmente o que pode estar longe do ótimo global. 
 
 ### Regras de divisão para classificação
 
+Considere um nó *t* de divisão de uma AD em que a probabilidade de observar exemplos de classe c<sub>i</sub> é dado por p<sub>i</sub>. Portanto a probabilidade de observar todas as classes é p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub> então a impureza sobre um nó *t* é uma função sobre a proporção da classe daquele nó i(t) = o(p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub>). Portanto a redução de impureza gerado pela divisão S de um conjuntos de treinamento em dois subconjuntos L e R pode ser medida como:
+
+d(S) = o(p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub>) - P<sub>L</sub> * o(p<sub>1L</sub>,p<sub>2L</sub>,...p<sub>nL</sub>) - P<sub>R</sub> * o(p<sub>1R</sub>,p<sub>2R</sub>,...p<sub>nR</sub>)
+
+Nessa equação P<sub>L</sub> e P<sub>R</sub> representam a probabilidade de um exemplo quando aplicado a regra de divisão pertencer ao subconjunto L ou R, respectivamente. 
+
+A função de impureza apresentam caracteristicas gerais como: simetria, ter máximo quando p<sub>1</sub> = p<sub>2</sub> = ... = p<sub>n</sub> e ter um mínimo quando p<sub>i</sub> = 1. Logo a proposta natural de uma AD deve tentar maximar a divisão dos subconjuntos que geram menor erro. Portanto uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilizade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilizade máxima. Casos intermediarios são tratados de forma diferente por cada medida de impureza.
+
+#### Entropia e Ganho de Informação
+
+Existem diversas medidas de impureza como ganho de informação, entropia, distância, ângulo, qui-quadrado e etc. Nessa seção vamos abordar a entropia e ganho de informação, medidas base para o entendimento do algoritmo C4.5 proposto por Quinlan (1993). 
+
+A entropia mede a aleatoriedade de uma variável aleatória. Suponha uma variável aleatória A com domínio {a<sub>1</sub>,a<sub>2</sub>,...,a<sub>v</sub>}. Suponha que a probabilidade de observar os valores são {p<sub>1</sub>,p<sub>2</sub>,...p<sub>v</sub>}. A entropis de A é calculada como:
+
+$$H(A) = -\sum_{i}(p_i * lnp_i)$$
+
+A entropia é medida em bits. 
 
 ### Exemplo Ilustrativo
 
