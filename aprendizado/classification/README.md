@@ -30,7 +30,7 @@ O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o
 
 Considere um nó *t* de divisão de uma AD em que a probabilidade de observar exemplos de classe c<sub>i</sub> é dado por p<sub>i</sub>. Portanto a probabilidade de observar todas as classes é p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub> então a impureza sobre um nó *t* é uma função sobre a proporção da classe daquele nó i(t) = o(p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub>). Portanto a redução de impureza gerado pela divisão S de um conjuntos de treinamento em dois subconjuntos L e R pode ser medida como:
 
-d(S) = o(p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub>) - P<sub>L</sub> * o(p<sub>1L</sub>,p<sub>2L</sub>,...p<sub>nL</sub>) - P<sub>R</sub> * o(p<sub>1R</sub>,p<sub>2R</sub>,...p<sub>nR</sub>)
+<img src="https://render.githubusercontent.com/render/math?math=d(S) = o(p_1,p_2,...p_n) - P_L * o(p_{1L},p_{2L},...p_{nL}) - P_R * o(p_{1R},p_{2R},...p_{nR})">
 
 Nessa equação P<sub>L</sub> e P<sub>R</sub> representam a probabilidade de um exemplo quando aplicado a regra de divisão pertencer ao subconjunto L ou R, respectivamente. 
 
@@ -40,11 +40,16 @@ A função de impureza apresentam caracteristicas gerais como: simetria, ter má
 
 Existem diversas medidas de impureza como ganho de informação, entropia, distância, ângulo, qui-quadrado e etc. Nessa seção vamos abordar a entropia e ganho de informação, medidas base para o entendimento do algoritmo C4.5 proposto por Quinlan (1993). 
 
-A entropia mede a aleatoriedade de uma variável aleatória. Suponha uma variável aleatória A com domínio {a<sub>1</sub>,a<sub>2</sub>,...,a<sub>v</sub>}. Suponha que a probabilidade de observar os valores são {p<sub>1</sub>,p<sub>2</sub>,...p<sub>v</sub>}. A entropis de A é calculada como:
+A entropia mede a aleatoriedade de uma variável aleatória em bits. Suponha uma variável aleatória A com domínio {a<sub>1</sub>,a<sub>2</sub>,...,a<sub>v</sub>}. Suponha que a probabilidade de observar os valores são {p<sub>1</sub>,p<sub>2</sub>,...p<sub>v</sub>}. A entropis de A é calculada como:
 
-$$H(A) = -\sum_{i}(p_i * lnp_i)$$
+<img src="https://render.githubusercontent.com/render/math?math=H(A) = -\sum_{i}p_i \ln p_i">
 
-A entropia é medida em bits. 
+Em uma AD, entropia é usada para medir a aleatoriedade do atributo alvo. A cada nó de decisão da árvore, o atributo que mais reduz a aleatoriedade da variável alvo será escolhido para dividir os dados. O ganho de informação é medido em cada atributo para verificar o quanto eles reduzem a entropia do sistema. Portanto o ganho de informação é medido como a diferença da entropia do conjunto de dados e a soma ponderada da entropia das partições. 
+
+<img src="https://render.githubusercontent.com/render/math?math=H(p,q) = -\frac{p}{p %2B q} \ln \frac{p}{p %2B q} - \frac{q}{p %2B q} \ln \frac{q}{ p%2B q}">
+<img src="https://render.githubusercontent.com/render/math?math=E(A,p,q) = \sum_{i=1}^{v}\frac{p_i %2B q_i}{p %2B q} H(p_i,q_i)">
+<img src="https://render.githubusercontent.com/render/math?math=IG(A,p,q) = H(p,q) - E(A,p,q)">
+
 
 ### Exemplo Ilustrativo
 
