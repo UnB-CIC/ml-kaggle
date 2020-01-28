@@ -14,7 +14,7 @@ Formalmente uma AD é um grafo acíclico direcionado em que cada nó é um nó d
 
 ### Uma AD genérica
 
-A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos (x<sub>1</sub> e x<sub>2</sub>). Cada nó da árvore corresponde a uma região nesse espaço. As regiões nos nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e parapelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
+A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos  (x<sub>1</sub> e x<sub>2</sub>). Cada nó da árvore corresponde a uma região nesse espaço. As regiões nos nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e parapelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
 
 ![](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/ad.png) *Exemplo de uma Árvore de Decisão. Adaptado de Katti Faceli et al., (2011)*
 
@@ -28,19 +28,19 @@ O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o
 
 ### Regras de divisão para classificação
 
-Considere um nó *t* de divisão de uma AD em que a probabilidade de observar exemplos de classe c<sub>i</sub> é dado por p<sub>i</sub>. Portanto a probabilidade de observar todas as classes é p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub> então a impureza sobre um nó *t* é uma função sobre a proporção da classe daquele nó i(t) = o(p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub>). Portanto a redução de impureza gerado pela divisão S de um conjuntos de treinamento em dois subconjuntos L e R pode ser medida como:
+Considere um nó *t* de divisão de uma AD em que a probabilidade de observar exemplos de classe c<sub>i</sub> é dado por p<sub>i</sub>. Portanto a probabilidade de observar todas as classes é p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub> então a impureza sobre um nó *t* é uma função sobre a proporção da classe daquele nó <img src="https://render.githubusercontent.com/render/math?math=i(t) = o(p_1,p_2,...p_n)">. Portanto a redução de impureza gerado pela divisão S de um conjuntos de treinamento em dois subconjuntos L e R pode ser medida como:
 
 <img src="https://render.githubusercontent.com/render/math?math=d(S) = o(p_1,p_2,...p_n) - P_L * o(p_{1L},p_{2L},...p_{nL}) - P_R * o(p_{1R},p_{2R},...p_{nR})">
 
 Nessa equação P<sub>L</sub> e P<sub>R</sub> representam a probabilidade de um exemplo quando aplicado a regra de divisão pertencer ao subconjunto L ou R, respectivamente. 
 
-A função de impureza apresentam caracteristicas gerais como: simetria, ter máximo quando p<sub>1</sub> = p<sub>2</sub> = ... = p<sub>n</sub> e ter um mínimo quando p<sub>i</sub> = 1. Logo a proposta natural de uma AD deve tentar maximar a divisão dos subconjuntos que geram menor erro. Portanto uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilizade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilizade máxima. Casos intermediarios são tratados de forma diferente por cada medida de impureza.
+A função de impureza apresentam caracteristicas gerais como: simetria, ter máximo quando <img src="https://render.githubusercontent.com/render/math?math=p_1 = p_2 = ... = p_n"> e ter um mínimo quando <img src="https://render.githubusercontent.com/render/math?math=p_i = 1">. Logo a proposta natural de uma AD deve tentar maximar a divisão dos subconjuntos que geram menor erro. Portanto uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilizade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilizade máxima. Casos intermediarios são tratados de forma diferente por cada medida de impureza.
 
 #### Entropia e Ganho de Informação
 
 Existem diversas medidas de impureza como ganho de informação, entropia, distância, ângulo, qui-quadrado e etc. Nessa seção vamos abordar a entropia e ganho de informação, medidas base para o entendimento do algoritmo C4.5 proposto por Quinlan (1993). 
 
-A entropia mede a aleatoriedade de uma variável aleatória em bits. Suponha uma variável aleatória A com domínio {a<sub>1</sub>,a<sub>2</sub>,...,a<sub>v</sub>}. Suponha que a probabilidade de observar os valores são {p<sub>1</sub>,p<sub>2</sub>,...p<sub>v</sub>}. A entropis de A é calculada como:
+A entropia mede a aleatoriedade de uma variável aleatória em bits. Suponha uma variável aleatória A com domínio <img src="https://render.githubusercontent.com/render/math?math=a_1,a_2,...,a_v">. Suponha que a probabilidade de observar os valores são <img src="https://render.githubusercontent.com/render/math?math=p_1,p_2,...,p_v">. A entropis de A é calculada como:
 
 <img src="https://render.githubusercontent.com/render/math?math=H(A) = -\sum_{i}p_i \ln p_i">
 
