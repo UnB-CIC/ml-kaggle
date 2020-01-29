@@ -2,7 +2,7 @@
 
 ## Árvores de Decisão e Regressão
 
-As (Árvores de Decisão)[https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o] e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de (divisão e consquista)[https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista] que recursivamente tende a diminuir a complexidade do problema tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.   
+As [Árvores de Decisão](https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o) e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de [divisão e consquista](https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista) que recursivamente tende a diminuir a complexidade do problema tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.   
 
 ### Componentes de uma AD
 
