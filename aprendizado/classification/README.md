@@ -154,6 +154,11 @@ Essa equação é aplicada para todos os atributos e todas as categorias ou pont
 
 ### Estratégia de poda
 
+As estatísticas calculadas em nós mais razos em uma AD costumam ser os mais importantes enquanto estatísticas de nós mais profundos costumam ter níveis de importancia menores. Isso se dá porque os nós mais razos refletem os conceitos mais gerais enquanto os mais profundos os conceitos mais específicos e normalmente relacionados ao [super ajustamento](https://pt.wikipedia.org/wiki/Sobreajuste). O super ajustamento esta diretamente relacionado ao tamanho da árvore. Quanto maior, mais super ajustada e mais difícil de ser interpretada. Portanto, pordar uam árvore, que é trocar nós profundos por nós folhas, pode ajudar a minimizar esse problema.
+
+A troca dos nós mais profundos por folhas pode causar a classificação erronea de alguns exemplos do conjunto de treinamento. Apensar de parecer contra-intuitivo, isso pode melhorar o desempenho para exemplos novos nunca antes vistos. Os métodos de poda mais conhecidos são: pré-poda e pós-poda. Enquanto a pré-poda é realizada durante a construção da árvore, a pós-poda é realizada depois da construção da árvore. 
+
+
 ## Floresta Aleatória
 
 ## Redes Neurais
