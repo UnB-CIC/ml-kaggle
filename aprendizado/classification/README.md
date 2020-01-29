@@ -48,7 +48,7 @@ Em uma AD, entropia é usada para medir a aleatoriedade do atributo alvo. A cada
 
 Assumindo que temos um problema de classificação binária, ou seja, duas classes e que cada uma delas tenha *p* e *q* exemplos no conjunto de treinamento, respectivamente. Dessa forma podemos calcular a entropa das classes da seguinte forma:
 
-<img src="https://render.githubusercontent.com/render/math?math=H(p,q) = -\frac{p}{p %2B q} \ln \frac{p}{p %2B q} - \frac{q}{p %2B q} \ln \frac{q}{ p%2B q}">
+<img src="https://render.githubusercontent.com/render/math?math=H(p,q) = -\frac{p}{p %2B q} \ln \frac{p}{p %2B q} - \frac{q}{p %2B q} \ln \frac{q}{p%2B q}">
 
 Alem disso, essa base tem um atributo A com *v* categorias. Para calcular a entropia desse atributo precisamos considerar a entropia das partições, ou seja, a entropia de cada uma das *v* categorias. A seguinte equação representa a entropia das partições *p* e *q* do atributo A: 
 
@@ -77,7 +77,7 @@ Probabilidade associada de cada classe:
 
 Entropia da classe para todo o conjunto de treinamento:
 
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga) = - \frac{9}{14} \ln \frac{9}{14} - \frac{5}{14} \ln \frac{5}{14} = 0.940 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga) = - \frac{9}{14} * \ln \frac{9}{14} - \frac{5}{14} *  \ln \frac{5}{14} = 0.940 bit">
 
 **2⁰ Passo:** 
 
@@ -85,15 +85,15 @@ Estimar a probabilidades de observar as classes dado cada categoria do atributo 
 
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Ensolarado) = \frac{2}{5}">
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Ensolarado) = \frac{3}{5}">
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Tempo = Ensolarado) = - \frac{2}{5} \ln \frac{2}{5} - \frac{3}{5} \ln \frac{3}{5} = 0.971 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Tempo = Ensolarado) = - \frac{2}{5} * \ln \frac{2}{5} - \frac{3}{5} * \ln \frac{3}{5} = 0.971 bit">
 
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Nublado) = \frac{4}{4}">
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Nublado) = \frac{0}{4}">
-<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Nublado) = - \frac{4}{4} \ln \frac{4}{4} - \frac{0}{4} \ln \frac{0}{4} = 0 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Nublado) = - \frac{4}{4} * \ln \frac{4}{4} - \frac{0}{4} * \ln \frac{0}{4} = 0 bit">
 
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Chuvoso) = \frac{3}{5}">
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Chuvoso) = \frac{2}{5}">
-<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Chuvoso) = - \frac{3}{5} \ln \frac{3}{5} - \frac{2}{5} \ln \frac{2}{5} = 0.971 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Chuvoso) = - \frac{3}{5} * \ln \frac{3}{5} - \frac{2}{5} * \ln \frac{2}{5} = 0.971 bit">
 
 **3⁰ Passo:** Calcular a entropia ponderada para o atributo *Tempo*:
 
@@ -116,11 +116,11 @@ Estimar a probabilidades de observar as classes dado cada categoria do atributo 
 
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura \leq 70.5) = \frac{4}{5}">
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura \leq 70.5) = \frac{1}{5}">
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura \leq 70.5) = - \frac{4}{5} \ln \frac{4}{5} - \frac{1}{5} \ln \frac{1}{5} = 0.721 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura \leq 70.5) = - \frac{4}{5} * \ln \frac{4}{5} - \frac{1}{5} * \ln \frac{1}{5} = 0.721 bit">
 
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura > 70.5) = \frac{5}{9}">
 <img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura > 70.5) = \frac{4}{9}">
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura = Ensolarado) = - \frac{5}{9} \ln \frac{5}{9} - \frac{4}{9} \ln \frac{4}{9} = 0.991 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura = Ensolarado) = - \frac{5}{9} * \ln \frac{5}{9} - \frac{4}{9} * \ln \frac{4}{9} = 0.991 bit">
 
 **3⁰ Passo:** Calcular a entropia ponderada para o atributo *Temperatura*:
 
