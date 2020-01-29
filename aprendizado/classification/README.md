@@ -72,32 +72,32 @@ Para construir uma AD precisamos descobrir o atributo que melhor discrimina as c
 
 Probabilidade associada de cada classe:
 
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim) = 9/14">
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao) = 5/14">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim) = \frac{9}{14}">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao) = \frac{5}{14}">
 
 Entropia da classe para todo o conjunto de treinamento:
 
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga) = -9/14 \ln 9/14 - 5/14 \ln 5/14 = 0.940 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga) = - \frac{9}{14} \ln \frac{9}{14} - \frac{5}{14} \ln \frac{5}{14} = 0.940 bit">
 
 **2⁰ Passo:** 
 
 Estimar a probabilidades de observar as classes dado cada categoria do atributo *Tempo*:
 
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Ensolarado) = 2/5">
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Ensolarado) = 3/5">
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Tempo = Ensolarado) = -2/5 \ln 2/5 - 3/5 \ln 3/5 = 0.971 bit">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Ensolarado) = \frac{2}{5}">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Ensolarado) = \frac{3}{5}">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Tempo = Ensolarado) = - \frac{2}{5} \ln \frac{2}{5} - \frac{3}{5} \ln \frac{3}{5} = 0.971 bit">
 
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Nublado) = 4/4">
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Nublado) = 0/4">
-<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Nublado) = -4/4 \ln 4/4 - 0/4 \ln 0/4 = 0 bit">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Nublado) = \frac{4}{4}">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Nublado) = \frac{0}{4}">
+<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Nublado) = - \frac{4}{4} \ln \frac{4}{4} - \frac{0}{4} \ln \frac{0}{4} = 0 bit">
 
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Chuvoso) = 3/5">
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Chuvoso) = 2/5">
-<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Chuvoso) = -3/5 \ln 3/5 - 2/5 \ln 2/5 = 0.971 bit">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Chuvoso) = \frac{3}{5}">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Chuvoso) = \frac{2}{5}">
+<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Chuvoso) = - \frac{3}{5} \ln \frac{3}{5} - \frac{2}{5} \ln \frac{2}{5} = 0.971 bit">
 
 **3⁰ Passo:** Calcular a entropia ponderada para o atributo *Tempo*:
 
-<img src="https://render.githubusercontent.com/render/math?math=H(Tempo) = 5/14 * 0.971 + 4/14 * 0 + 5/14 * 0.971 = 0.693 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Tempo) = \frac{5}{14} * 0.971 + \frac{4}{14} * 0 + \frac{5}{14} * 0.971 = 0.693 bit">
 
 **4⁰ Passo:** Calcular o ganho de informação em dividir o conjunto de acordo com os valores do atributo *Tempo*:
 
@@ -114,17 +114,17 @@ No exemplo da base *Jogar Tênis*, um ponto de corte interessante para o atribut
 
 Estimar a probabilidades de observar as classes dado cada categoria do atributo *Temperatura*:
 
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura <= 70.5) = 4/5">
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura <= 70.5) = 1/5">
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura <= 70.5) = -4/5 \ln 4/5 - 1/5 \ln 1/5 = 0.721 bit">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura \leq 70.5) = \frac{4}{5}">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura \leq 70.5) = \frac{1}{5}">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura \leq 70.5) = - \frac{4}{5} \ln \frac{4}{5} - \frac{1}{5} \ln \frac{1}{5} = 0.721 bit">
 
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura > 70.5) = 5/9">
-<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura > 70.5) = 4/9">
-<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura = Ensolarado) = -5/9 \ln 5/9 - 4/9 \ln 4/9 = 0.991 bit">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura > 70.5) = \frac{5}{9}">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura > 70.5) = \frac{4}{9}">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura = Ensolarado) = - \frac{5}{9} \ln \frac{5}{9} - \frac{4}{9} \ln \frac{4}{9} = 0.991 bit">
 
 **3⁰ Passo:** Calcular a entropia ponderada para o atributo *Temperatura*:
 
-<img src="https://render.githubusercontent.com/render/math?math=H(Temperatura) = 5/14 * 0.721 + 9/14 * 0.991 = 0.895 bit">
+<img src="https://render.githubusercontent.com/render/math?math=H(Temperatura) = \frac{5}{14} * 0.721 + \frac{9}{14} * 0.991 = 0.895 bit">
 
 **4⁰ Passo:** Calcular o ganho de informação em dividir o conjunto de acordo com os valores do atributo *Temperatura*:
 
