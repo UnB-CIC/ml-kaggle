@@ -46,7 +46,7 @@ A entropia mede a aleatoriedade de uma variável aleatória em bits. Suponha uma
 
 Em uma AD, entropia é usada para medir a aleatoriedade do atributo alvo. A cada nó de decisão da árvore, o atributo que mais reduz a aleatoriedade da variável alvo será escolhido para dividir os dados. O ganho de informação é medido em cada atributo para verificar o quanto eles reduzem a entropia do sistema. Portanto o ganho de informação é medido como a diferença da entropia do conjunto de dados e a soma ponderada da entropia das partições. 
 
-Assumindo que temos um problema de classificação binário, ou seja, duas classes e que cada uma delas tenha *p* e *q* exemplos no conjunto de treinamento, respectivamente. Dessa forma podemos calcular a entropa das classes da seguinte forma:
+Assumindo que temos um problema de classificação binária, ou seja, duas classes e que cada uma delas tenha *p* e *q* exemplos no conjunto de treinamento, respectivamente. Dessa forma podemos calcular a entropa das classes da seguinte forma:
 
 <img src="https://render.githubusercontent.com/render/math?math=H(p,q) = -\frac{p}{p %2B q} \ln \frac{p}{p %2B q} - \frac{q}{p %2B q} \ln \frac{q}{ p%2B q}">
 
@@ -62,9 +62,83 @@ A heurística apresentada deve ser aplicada para todos atributos da base com o b
 
 ### Exemplo Ilustrativo
 
+O conjunto de dados *Jogar Tênis* é um problema de classificação binária aonde pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. O conjunto tem 14 amostras de treinamento e a última coluna denominada *Joga* representa os rótulos jogar ou não tênis. Os atributos *Tempo* e *Vento* são categoricos e os atributos *Temperatura* e *Umidade* são contínuos.  
 
+![](https://github.com/UnB-CIC/ml-kaggle/blob/master/aprendizado/classification/jogatenis.png) *Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
 
-### Regras de divisão para regressão
+Para construir uma AD precisamos descobrir o atributo que melhor discrimina as classes. Para isso precisamos calcular as probabilidades associadas de cada classe, a entropia do conjunto de treinamento, a entropia das partições e então estimar o ganho de informação de cada atributo. A seguir iremos calcular o ganho de informação do atributo *Tempo*.
+
+**1⁰ Passo:** 
+
+Probabilidade associada de cada classe:
+
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim) = 9/14">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao) = 5/14">
+
+Entropia da classe para todo o conjunto de treinamento:
+
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga) = -9/14 \ln 9/14 - 5/14 \ln 5/14 = 0.940 bit">
+
+**2⁰ Passo:** 
+
+Estimar a probabilidades de observar as classes dado cada categoria do atributo *Tempo*:
+
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Ensolarado) = 2/5">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Ensolarado) = 3/5">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Tempo = Ensolarado) = -2/5 \ln 2/5 - 3/5 \ln 3/5 = 0.971 bit">
+
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Nublado) = 4/4">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Nublado) = 0/4">
+<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Nublado) = -4/4 \ln 4/4 - 0/4 \ln 0/4 = 0 bit">
+
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Tempo = Chuvoso) = 3/5">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Tempo = Chuvoso) = 2/5">
+<img src="https://render.githubusercontent.com/render/math?math=H(Jogar | Tempo = Chuvoso) = -3/5 \ln 3/5 - 2/5 \ln 2/5 = 0.971 bit">
+
+**3⁰ Passo:** Calcular a entropia ponderada para o atributo *Tempo*:
+
+<img src="https://render.githubusercontent.com/render/math?math=H(Tempo) = 5/14 * 0.971 + 4/14 * 0 + 5/14 * 0.971 = 0.693 bit">
+
+**4⁰ Passo:** Calcular o ganho de informação em dividir o conjunto de acordo com os valores do atributo *Tempo*:
+
+<img src="https://render.githubusercontent.com/render/math?math=IG(Tempo) = H(Joga) - H(Joga|Tempo)">
+<img src="https://render.githubusercontent.com/render/math?math=IG(Tempo) = 0.940 - 0.693 = 0.247 bit">
+
+Uma vez que foi calculado o ganho de informação gerado pelo atributo *Tempo*, o mesmo precisa ser feito para o atributo *Vento*, *Temperatura* e *Umidade*. No caso dos dois últimos, como eles são atributos contínuos, alguma estratégia precisa ser utilizada para permitir a divisão desse atributo em partições. 
+
+As estratégias mais utilizadas é a discretização ou a escolha de um ponto de corte binário. A discretização esta relacionada a transformação dos dados contínuos em categoricos por meio de estratégias como o [histograma](https://pt.wikipedia.org/wiki/Histograma) enquanto a escolha de um ponto de corte define um valor do conjunto de treinamento (normalmente utilizando uma função de mérito) que permite a construção de uma partição binária. Usualmente utiliza-se a segunda estratégia.
+
+No exemplo da base *Jogar Tênis*, um ponto de corte interessante para o atributo *Temperatura* é o valor 70.5. Esse valor permite separar as amostrar em partições interessantes. A seguir os passos 2, 3 e 4 são repetidos:
+
+**2⁰ Passo:** 
+
+Estimar a probabilidades de observar as classes dado cada categoria do atributo *Temperatura*:
+
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura <= 70.5) = 4/5">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura <= 70.5) = 1/5">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura <= 70.5) = -4/5 \ln 4/5 - 1/5 \ln 1/5 = 0.721 bit">
+
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Sim | Temperatura > 70.5) = 5/9">
+<img src="https://render.githubusercontent.com/render/math?math=p(Joga = Nao | Temperatura > 70.5) = 4/9">
+<img src="https://render.githubusercontent.com/render/math?math=H(Joga | Temperatura = Ensolarado) = -5/9 \ln 5/9 - 4/9 \ln 4/9 = 0.991 bit">
+
+**3⁰ Passo:** Calcular a entropia ponderada para o atributo *Temperatura*:
+
+<img src="https://render.githubusercontent.com/render/math?math=H(Temperatura) = 5/14 * 0.721 + 9/14 * 0.991 = 0.895 bit">
+
+**4⁰ Passo:** Calcular o ganho de informação em dividir o conjunto de acordo com os valores do atributo *Temperatura*:
+
+<img src="https://render.githubusercontent.com/render/math?math=IG(Temperatura) = H(Joga) - H(Joga|Temperatura)">
+<img src="https://render.githubusercontent.com/render/math?math=IG(Temperatura) = 0.940 - 0.895 = 0.045 bit">
+
+Sumarizando o ganho de informação para todos os atributos temos os seguintes valores:
+
+<img src="https://render.githubusercontent.com/render/math?math=IG(Tempo) = 0.940 - 0.693 = 0.247 bit">
+<img src="https://render.githubusercontent.com/render/math?math=IG(Temperatura) = 0.940 - 0.895 = 0.045 bit">
+<img src="https://render.githubusercontent.com/render/math?math=IG(Umidade) = 0.940 - 0.789 = 0.151 bit">
+<img src="https://render.githubusercontent.com/render/math?math=IG(Vento) = 0.940 - 0.892 = 0.048 bit">
+
+Portanto podemos concluir que o atributo *Tempo* é que gera maior redução no ganho de informação. Logo o nó raiz da AD é composta pelo nó *Tempo* com 3 ramos, cada um relacionado a uma categoria desse atributo categórico (ensolarado, chuvoso e nublado). Como o algoritmo é baseado em dividir para conquistar, cada nó filho da árvore precisa ser construido baseado em sua partição dos dados. O processo se repete até que todos os nós sejam puros ou uma estratégia de poda seja aplicada.      
 
 ### Estratégia de poda
 
