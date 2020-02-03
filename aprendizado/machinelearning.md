@@ -1,5 +1,7 @@
 # Aprendizado de Máquina
 
+Cursos Kaggle [introdutório](https://www.kaggle.com/learn/intro-to-machine-learning), [intermediário](https://www.kaggle.com/learn/intermediate-machine-learning).
+
 ## Algoritmos
 
 ## Avaliação
