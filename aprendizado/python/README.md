@@ -1,4 +1,4 @@
-# Computação Científica
+# Computação Científica com Python
 
 A computação é uma ferramenta fundamental para produção de ciência, facilitando a captação de dados, manipulação e processamento destes dados e a visualização dos resultados. As ferramentas de programação servem para auxiliar nos seguintes passos:
 1. [Programação](programacao.ipynb)
