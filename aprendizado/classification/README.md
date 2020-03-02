@@ -158,9 +158,26 @@ As estatísticas calculadas em nós mais razos em uma AD costumam ser os mais im
 
 A troca dos nós mais profundos por folhas pode causar a classificação erronea de alguns exemplos do conjunto de treinamento. Apensar de parecer contra-intuitivo, isso pode melhorar o desempenho para exemplos novos nunca antes vistos. Os métodos de poda mais conhecidos são: pré-poda e pós-poda. Enquanto a pré-poda é realizada durante a construção da árvore, a pós-poda é realizada depois da construção da árvore. 
 
+## Bootstrap
 
-## Floresta Aleatória
+## Random Forest
 
-## Redes Neurais
+## Boosting
+
+## Gradient Boosting
+
+## XGBoost
+
+## Redes Neurais Artificiais
+
+### Perceptron
+
+### Perceptron Multicamadas
+
+### Algoritmo Backpropagation
+
+
+
+
 
 ## _Boosting_
