@@ -8,7 +8,7 @@ O objetivo do grupo de estudos é difundir os conhecimentos básicos em Aprendiz
 
 ## Programa
 
-O grupo de estudos será realizado quinzenalmente às terças-feiras das 16 às 18 horas no _Laboratório de Raciocínio Automatizado_ (LARA). O programa do grupo de estudos engloba os seguintes tópicos:
+O grupo de estudos será realizado semanalmente às quartas-feiras das 14 às 16 horas no _Laboratório de Raciocínio Automatizado_ (LARA). O programa do grupo de estudos engloba os seguintes tópicos:
 
 * Python e suas bibliotecas
 * Conceitos básicos em Aprendizado de Máquina e Mineração de Dados
