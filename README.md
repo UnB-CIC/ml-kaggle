@@ -1,4 +1,4 @@
-# Fellowship of Data Science Experts
+  # Fellowship of Data Science Experts
 
 Grupo de Estudos em Aprendizado de Máquina
 
@@ -45,7 +45,9 @@ Como parte das tarefas do grupo de estudos estão o desenvolvimento de pacotes, 
   * Aprendizagem de Máquina
     * [Introduction to Machine Learning Problem Framing](https://developers.google.com/machine-learning/problem-framing/  ) (Google)
     * [Machine Learning](https://www.coursera.org/learn/machine-learning#instructors) (Coursera)
+    * [The Origin Story of Data Science](https://www.welcometothejungle.com/en/articles/story-origin-data-science)
   * Visualização de Dados
+    * [Why Data Visualization is Essential in Every Step of Machine Learning](https://www.welcometothejungle.com/en/articles/btc-data-visualization-machine-learning)
   * Programação
     * [R](https://www.r-project.org/about.html)
 
