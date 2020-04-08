@@ -11,7 +11,8 @@ O objetivo do grupo de estudos é difundir os conhecimentos básicos em Aprendiz
 O grupo de estudos será realizado semanalmente às quartas-feiras das 14 às 16 horas no _Laboratório de Raciocínio Automatizado_ (LARA). Além de ter uma [noção genérica do Kaggle](https://www.kaggle.com/learn/overview) (e como uma [competição](https://www.kaggle.com/docs/competitions) funcionam), o programa do grupo de estudos engloba os seguintes tópicos:
 
 * [Python](python)
-* Conceitos de [Mineração de Dados](datamining) e de [Aprendizado de Máquina](machinelearning)
+* [Inteligência Artificial](ai)
+* Conceitos de [Mineração de Dados](dm) e de [Aprendizado de Máquina](ml)
 * Algoritmos de [classificação](classification).
 * [Soluções para as competições](competitions) do Kaggle.
 
