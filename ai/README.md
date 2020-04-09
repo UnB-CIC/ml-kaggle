@@ -16,26 +16,28 @@ Imagine uma base de dados que contém exemplos de equações de segundo grau
 <img src="https://render.githubusercontent.com/render/math?math=ax^2 %2B by %2B+ c = 0"> e suas raizes 
 <img src="https://render.githubusercontent.com/render/math?math=r_1"> e <img src="https://render.githubusercontent.com/render/math?math=r_2">. Nessa base de dados, cada linha representa uma amostra/dado/objeto e cada coluna/variável/atributo uma característica relacionada a essa amostra. Perceba que as três primeiras colunas são os índices das equações de segundo grau e as duas últimas colunas as raizes.
 
-| a | b  | c   | r1  | r2  |
-|---|----|-----|-----|-----|
-| 1 | -5 | 6   | 3   | 2   |
-| 4 | -4 | 1   | 1/2 | 1/2 |
-| 1 | 2  | -15 | 3   | -5  |
+O conjunto de dados *Jogar Tênis* é um problema de classificação binária aonde pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Nessa base de dados, cada linha representa uma amostra/dado/objeto e cada coluna/variável/atributo uma característica relacionada a essa amostra. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. O conjunto tem 14 amostras de treinamento e a última coluna denominada *Joga* representa os rótulos jogar ou não tênis.
 
-Naturalmente podemos inferir as raizes porque já conhecemos a [Fórmula de Bhaskara](https://pt.wikipedia.org/wiki/Equa%C3%A7%C3%A3o_quadr%C3%A1tica) que resolve as equações de segundo grau e retorna os valores das raizes. Para chegar nessa equação, Bhaskara utilizou o método de completamento de quadrados. No entanto, imagina que ela é desconhecida da humanidade e Bhaskara nunca nasceu.  Qual seria a hipótese ou função que retornaria os valores das raizes? Uma alternativa seria utilizar o aprendizado indutivo.
+![](jogatenis.png) *Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
+
+Naturalmente podemos contratar um climatólogo expert em tênis para nos dizer quando e onde devemos jogar tênis baseado em muitos modelos climáticos e matemáticos. Provavelmente ele usuaria uma formula matemática complexa e muito difícil de ser aplicada. Outra alternativa seria utilizar o aprendizado indutivo.
 
 Indução no discionário Michaels significa "forma de raciocínio que leva à conclusão de um certo caso com base na observação da regularidade de uma ocorrência". Ou seja, podemos entender que os algoritmos de Aprendizado de Máquina aprendem por meio da experiência, ou seja, aprendizado indutivo. Quando um algoritmo de Aprendizado de Máquina esta aprendendo a partir de um conjunto de dados, ele esta procurando uma hipótese, no espaço de possíveis hipóteses, capaz de descrever as relações entre objetos e que melhor se ajuste aos dados.
 
+Exemplos de aprendizado indutivo:
+* Seu pai quando diz que o melhor lugar para pescar é na rocha próximo a curva do rio
+* Seu avô quando olha para o céu e diz que vai chover em 20 minutos
+* Sua avó quando diz que andar de moto é perigoso
+
 ## Indução da hipótese ou função
 
-O que se deseja é construir uma hipótese capaz de predizer os valores das raizes de uma determina equação de segundo grau antes nunca vista. Assim, uma vez induzida uma hipótese, é esperado que ela também seja valida para outras amostras do mesmo domínio mas que não fazem do conjunto de treinamento. A essa capacidade da hipótese continuar valendo para outros objetos dá-se o nome de capacidade de generalização da hipótese. 
+O que se deseja é construir uma hipótese capaz de predizer se devemos ou não jogar tênis para uma amostra antes nunca vista. Assim, uma vez induzida uma hipótese, é esperado que ela também seja valida para outras amostras do mesmo domínio mas que não fazem do conjunto de treinamento. A essa capacidade da hipótese continuar valendo para outros objetos dá-se o nome de capacidade de generalização da hipótese. 
 
 O objetivo de um algoritmo de AM utilizado nessa tarefa é aprender, a partir de um subconjunto dos dados, um modelo, hipótese ou função capaz de relacionar os valores dos atributos de entrada de um objeto ao valor do seu atributo de saída. Além disso é importante que os algoritmos de AM sejam capazes de lidar com dados imperfeitos. Muitos conjuntos de dados apresentam algum tipo de imperfeição como presença de ruídos, dados ausentes e redundantes.
 
 Quando uma hipótese apresenta baixa capacidade de generalização, pode ser que ela esteja superajustada aos dados (overfitting). Também podemos dizer que a hipótese memorizou os dados. Quando a hipótese aprensenta baixa capacidade de generalização inclusive no conjunto de treianmento, dizemos que ela subajustou aos dados (underfitting). Essa condição pode acontecer quando o conjunto de treinamento é pequeno e pouco representativo ou o algoritmo utilizado para construir a hipótese é muito simples. A Figura a seguir apresenta exemplos de *overfitting*, *underfitting* e um hipótese ideal.
 
 ![](over_under.png) *Exemplo de hipóteses para uma base de dados. Adaptado de https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76*
-
 
 ## Viés dos algoritmos
 
