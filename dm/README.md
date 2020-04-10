@@ -20,7 +20,7 @@ O conjunto de dados *Jogar Tênis* é um problema de classificação aonde prete
 
 ![](jogatenis.png) *Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
 
-Os valores que os atributos podem assumir são definidos de diferentes formas. Uma delas é usar a definição de tipo e escala. Enquanto o tipo do atributo diz respeito ao grau de quantização nos dados, a escala indica a significância relativa dos valores. O tipo pode ser quantitativo/numérico e qualitativo/simbólico/categórico e a escala pode ser nominais, ordinais, intervalares e racionais. 
+Os valores que os [atributos/variáveis](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(estat%C3%ADstica)) podem assumir são definidos de diferentes formas. Uma delas é usar a definição de tipo e escala. Enquanto o [tipo](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(estat%C3%ADstica)) do atributo diz respeito ao grau de quantização nos dados, a [escala](https://pt.wikipedia.org/wiki/Escala_(estat%C3%ADstica)) indica a significância relativa dos valores. O tipo pode ser quantitativo/numérico e qualitativo/simbólico/categórico e a escala pode ser nominais, ordinais, intervalares e racionais. 
 
 Os valores quantitativos/numéricos podem ser contínuos ou discretos mas frequentemente representados por valores reais e apresentam alguma medida associada. Os atributos qualitativos/simbólicos/categóricos apresentam um número finito de categorias. Alguns atributos qualitativos podem apresentar ordem mas esse caso específico é muitas vezes desencorajado nas bibliotecas de AM. Além disso, esse tipo de dado não aceita operações aritméticas.  
 
@@ -39,13 +39,12 @@ A estatística descritiva resume de forma quantitativa as principais caracterís
 
 #### Univariadas
 
-* Medidas de localidade: média, mediana, intervalo, desvio padrão, variância, etc.
-* Medidas de distribuição: momento, obluiquidade, curtose, etc.
+* Medidas de localidade: [média](https://pt.wikipedia.org/wiki/M%C3%A9dia), [mediana](https://pt.wikipedia.org/wiki/Mediana), intervalo, [desvio padrão](https://pt.wikipedia.org/wiki/Desvio_padr%C3%A3o), [variância](https://pt.wikipedia.org/wiki/Vari%C3%A2ncia), etc.
+* Medidas de distribuição: momento, [obliquidade](https://pt.wikipedia.org/wiki/Assimetria_(estat%C3%ADstica)), [curtose](https://pt.wikipedia.org/wiki/Curtose), etc.
 
 #### Multivariadas
 
-* convariância
-* correlação
+* [Convariância](https://pt.wikipedia.org/wiki/Covari%C3%A2ncia), [correlação](https://pt.wikipedia.org/wiki/Correla%C3%A7%C3%A3o), etc.
 
 ## Pré-processamento dos Dados
 
