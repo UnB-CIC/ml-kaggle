@@ -46,19 +46,15 @@ Sem viés não haverá aprendizado. Portanto, todos os algoritmos de AM apresent
 
 ### Viés de Representação
 
-O viés de representação está associado a forma como cada algoritmo de AM representa o conhecimento para descrever a hipótese induzida. A Árvore de Decisão (AD) representa o conhecimento por meio de regras representadas por nós em uma árvore. Essas regras são perguntas a respeito de um atributo e cada nó folha esta associado a uma classe da base de dados. Quando um novo exemplo é apresentado a esse modelo, a   
+O viés de representação está associado a forma como cada algoritmo de AM representa o conhecimento para descrever a hipótese induzida. A Árvore de Decisão (AD) representa o conhecimento por meio de uma estrutura de dados na forma de árvore. Os nós dessa árvore são perguntas a respeito de um atributo que levam aos nós folhas associados a uma classe da base de dados. Quando um novo exemplo é apresentado a esse modelo, a AD é percorrida da raiz até as folhas. Em uma Rede Neural Artificial (RNA) o modelo pode ser representado por matrizes que armazenam os valores dos pesos das conexões entre os neurônios e as diversas camadas da rede. Uma vez treinada (pesos calibrados), a rede propaga os novos exemplos multiplicando os valores de entrada com os pesos das conexões até a camada de saída.        
 
 ![](vies_representacao.png) 
 *Exemplo de viés de representação para uma AD e Redes Neurais. Adaptado de Katti Faceli et al., (2011)*
 
 ### Viés de Busca
 
-
-
+O viés de busca esta associado a forma como os algoritmos de AM buscam a hipótese que melhor se ajusta aos dados. Uma AD, por exemplo, pode utilizar o atributo mais informativo como nó raiz da árvore. Para descobrir qual atributo é esse, diversas medidas podem ser usadas como entropia, índice Gini e etc. O tamanho dessa AD também esta relacionada ao viés de busca. Algumas ADs podem ser mais profundas em detrimentos de outras. O mesmo acontece com as RNAs.    
 
 ## Classificação do Aprendizado
 
-
-
-
-
+Quando falamos de AM, estamos nos referindo ao aprendizado indutivo. Ou seja, aqueles algoritmos em que o aprendizado ocorre por meio da generalização dos exemplos de treinamento. Quando esses dados apresentam rótulos/classes ou um atributo alvo, normalmente estamos interessados em encontrar uma hipótese ou função que seja capaz de, utilizando os atributos da base, predizer o atributo alvo. Assim estamos nos referendo a um subconjunto de algoritmos dentro da etapa de AM chamados de preditivos ou supervisionados. As tarefas supervisionadas ainda se distinguem em dois tipos: rótulos contínuos (regressão) e discretos (classificação).    
