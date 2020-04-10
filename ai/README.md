@@ -29,7 +29,7 @@ Exemplos de aprendizado indutivo:
 * Seu avô quando olha para o céu e diz que vai chover em 20 minutos
 * Sua avó quando diz que andar de moto é perigoso
 
-## Indução da hipótese ou função
+## Indução da Hipótese ou Função
 
 O que se deseja é construir uma hipótese capaz de predizer se devemos ou não jogar tênis para uma amostra antes nunca vista. Assim, uma vez induzida uma hipótese, é esperado que ela também seja valida para outras amostras do mesmo domínio mas que não fazem do conjunto de treinamento. A essa capacidade da hipótese continuar valendo para outros objetos dá-se o nome de capacidade de generalização da hipótese. 
 
@@ -39,7 +39,20 @@ Quando uma hipótese apresenta baixa capacidade de generalização, pode ser que
 
 ![](over_under.png) *Exemplo de hipóteses para uma base de dados. Adaptado de https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76*
 
-## Viés dos algoritmos
+## Viés dos Algoritmos
+
+Sem viés não haverá aprendizado. Portanto, todos os algoritmos de AM apresentam algum viés. Viés pode ser definido como caracteristicas que restringem as hipóteses que serão visitadas no espaço de busca pelo algoritmo. Segundo Mitchell (1997) o viés permite que o algoritmo generalize o conhecimento adquirido durante a fase de treinamento para aplicá-lo com sucesso aos novos dados. Assim, cada algoritmo de AM apresenta dois viés, o de representação e o de busca.
+
+### Viés de Representação
+
+O viés de representação está associado a forma como cada algoritmo de AM representa o conhecimento para descrever a hipótese induzida. A Árvore de Decisão (AD) representa o conhecimento por meio de regras representadas por nós em uma árvore. Essas regras são perguntas a respeito de um atributo e cada nó folha esta associado a uma classe da base de dados. Quando um novo exemplo é apresentado a esse modelo, a   
+
+![](vies_representacao.png) *Exemplo de viés de representação para uma Árvore de Decisão, Conjunto de Regras e Redes Neurais. Adaptado de Katti Faceli et al., (2011)*
+
+### Viés de Busca
+
+
+
 
 ## Classificação do Aprendizado
 
