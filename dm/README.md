@@ -18,7 +18,8 @@ Apesar do crescente número de bases disponíveis, na maioria das vezes não é 
 
 O conjunto de dados *Jogar Tênis* é um problema de classificação aonde pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Nessa base de dados, <img src="https://render.githubusercontent.com/render/math?math=X_{nxd}"/> o valor *n* é 14 e o valor de *d* é 4. Como é uma supervisionada com rótulos discretos, ela apresenta um rótulos são um vetor <img src="https://render.githubusercontent.com/render/math?math=y = \{c_1, c_2, ... c_l\}"/> com *l* igual a 2. Cada linha representa uma amostra/dado/objeto e cada coluna/variável/atributo uma característica relacionada a essa amostra. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. A última coluna denominada *Joga* representa os rótulos jogar ou não tênis.
 
-![](jogatenis.png) *Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
+![](jogatenis.png) 
+*Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
 
 Os valores que os [atributos/variáveis](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(estat%C3%ADstica)) podem assumir são definidos de diferentes formas. Uma delas é usar a definição de tipo e escala. Enquanto o [tipo](https://pt.wikipedia.org/wiki/Vari%C3%A1vel_(estat%C3%ADstica)) do atributo diz respeito ao grau de quantização nos dados, a [escala](https://pt.wikipedia.org/wiki/Escala_(estat%C3%ADstica)) indica a significância relativa dos valores. O tipo pode ser quantitativo/numérico e qualitativo/simbólico/categórico e a escala pode ser nominais, ordinais, intervalares e racionais. 
 
