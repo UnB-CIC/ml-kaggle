@@ -37,7 +37,8 @@ O objetivo de um algoritmo de AM utilizado nessa tarefa é aprender, a partir de
 
 Quando uma hipótese apresenta baixa capacidade de generalização, pode ser que ela esteja superajustada aos dados (overfitting). Também podemos dizer que a hipótese memorizou os dados. Quando a hipótese aprensenta baixa capacidade de generalização inclusive no conjunto de treianmento, dizemos que ela subajustou aos dados (underfitting). Essa condição pode acontecer quando o conjunto de treinamento é pequeno e pouco representativo ou o algoritmo utilizado para construir a hipótese é muito simples. A Figura a seguir apresenta exemplos de *overfitting*, *underfitting* e um hipótese ideal.
 
-![](over_under.png) *Exemplo de hipóteses para uma base de dados. Adaptado de https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76*
+![](over_under.png) 
+*Exemplo de hipóteses para uma base de dados. Adaptado de https://medium.com/greyatom/what-is-underfitting-and-overfitting-in-machine-learning-and-how-to-deal-with-it-6803a989c76*
 
 ## Viés dos Algoritmos
 
@@ -47,7 +48,8 @@ Sem viés não haverá aprendizado. Portanto, todos os algoritmos de AM apresent
 
 O viés de representação está associado a forma como cada algoritmo de AM representa o conhecimento para descrever a hipótese induzida. A Árvore de Decisão (AD) representa o conhecimento por meio de regras representadas por nós em uma árvore. Essas regras são perguntas a respeito de um atributo e cada nó folha esta associado a uma classe da base de dados. Quando um novo exemplo é apresentado a esse modelo, a   
 
-![](vies_representacao.png) *Exemplo de viés de representação para uma Árvore de Decisão, Conjunto de Regras e Redes Neurais. Adaptado de Katti Faceli et al., (2011)*
+![](vies_representacao.png) 
+*Exemplo de viés de representação para uma AD e Redes Neurais. Adaptado de Katti Faceli et al., (2011)*
 
 ### Viés de Busca
 
