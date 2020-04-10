@@ -13,7 +13,7 @@ O grupo de estudos será realizado semanalmente às quartas-feiras das 14 às 16
 * [Python](python)
 * [Inteligência Artificial](ai)
 * Conceitos de [Mineração de Dados](dm) e de [Aprendizado de Máquina](ml)
-* Algoritmos de [classificação](classification).
+* Algoritmos de [classificação](ml/class).
 * [Soluções para as competições](competitions) do Kaggle.
 
 ## Desenvolvimento
