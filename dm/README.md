@@ -49,13 +49,41 @@ A estatística descritiva resume de forma quantitativa as principais caracterís
 
 ## Pré-processamento dos Dados
 
-### Limpeza dos Dados
+Técnicas de pré-processamento são comumente utilizadas para melhorar a qualidade dos dados por meio da eliminação ou minimização de problemas como os ruídos, as imperfeições, os valores incorretos ou consistentes e os valores ausentes. Além disso, algumas bases podem apresentar alta dimensionalidade ou um número muito grande amostras o que também pode ser corrigido com técnicas de pré-processamento. 
 
-#### Incompletos
+### Eliminação Manual de Atributos
+
+Os atributos são considerados irrelevantes quando eles não contribuem para a estimativa do valor do atributo alvo. Por exemplo, considere a base de dados *Jogar Tênis*. Se tivessemos os atributos *nome* e *ID* de cada jogador, esses atributos não ajudariam a predizer se alguem deve ou não jogar tênis. Portanto são atributos irrelevantes. Essa análise é manual no entanto não pode ser desconsiderada. Outros exemplos de atributos irrelevantes são aqueles que apresentam valores constantes para todas as amostras ou apresentam pouca variação.
+
+### Amostragem dos Dados
+
+Alguns algoritmos de AM têm dificuldade de lidar com um número muito grande de amostras. Esse é o exemplo do algoritmo *k*-vizinhos mais próximos (*k*NN). Esse algoritmo precisa calcular a distância entre todos os exemplos. Na sequência ele utiliza os *k* vizinhos mais próximos das amostras de teste para realizar a predição das classes. Esse processo de aprendizado, dependendo do tamanho da base, pode necessitar de muita memória e ter um alto custo computacional.
+
+Além disso, existe um balanço entre custo computacional e acurácia. Quanto mais dados utilizados maior tende a ser a taxa de acerto (matemáticamente comprovado) e menor a eficiência computacional no processo de indução dos modelos. Para se obter um bom compromisso entre taxa de acerto e custo computacional, é comum trabalhar com uma amostra do conjunto de treinamento. No entanto é importante ressaltar que amostrar diferentes podem gerar modelos e taxas de acerto diferentes. Quando a amostra respeita a distribuição estatística dos dados originais, essa variação na taxa de acerto pode diminuir. Com isso seria possível fornecer uma estimativa da informação continda na população original, permitindo tirar conclusões do todo a partir de uma parte dos dados. Exemplos de amostragens:
+
+* Amostragem aleátoria simples (com e sem reposição)
+* Amostragem estratificada
+* Amostragem progressiva
+
+### Incompletos
+
+Ausência de valores em alguma amostra ou atributo é um problema comum nas bases de dados. Dependendo do problema a taxa de valores ausêntes pode ser maior do que taxa de valures presentes. Normalmente esse valores ausentes são marcados nas bases de dados por *NULL*, *NA* ou *-*. A origem desses valores ausêntes pode ser diversa: o atributo não foi consderado importante para aquela amostra, desconhecimento do valor, erro de preenchimento ou inexistencia de valor.
+
+Existem diversas formas de tratar esses valores ausêntes: (1) a mais simples é eliminar os objetos ou atributo com valores ausêntes. Essa técnica não é indicada quando a eliminação irá impactar muitas amostras ou muitos atributos da base de dados; (2) outra alternativa é preencher os valores ausêntes usando alguma heurística como a média, moda e mediana daquele atributo separado por classe ou para todas as amostras; e (3) utilizando como heurística algoritmos de AM para o preenchimento.
+
+Nessa última abordagem que utiliza algoritmos de AM como heurística para o preenchimento de valores ausêntes, uma possível solução seria utilizar o algoritmo *k*NN para indicar o valor mais frequente das *k* amostras mais semelhantes daquele com valor ausênte a ser estimado. Nesse caso, o atributo alvo poderia ser utilziado como se fosse um atributo preditivo e o atributo com valor ausênte o atributo alvo ou aquele a ser estimado.
 
 #### Redudantes
 
+As bases de dados podem apresentar tanto amostras quanto atributos redundantes. Uma amostras ou atributo é classificado como redundante quando eles aprensentam outra amostra ou atributo muito semelhante ao original. Normalmente esse tipo de problema é causado durante a fase de coleta ou integração dos dados. O impacto deles durante o processo de indução vai depdender do algoritmo de AM, mas no geral podemos dizer que pode ocorrer intereferencia. Essa interferencia normalmente esta associada a um peso ou importancia maior a amostra ou atributo redudante contribuindo mais no modelo final. 
+
+O algoritmo *k*NN por exemplo, é muito influenciado por ambos, amostras e atributos redudantes. As amostras redudantes podem causar uma classificação erronea de um exemplo por conta dos *k* vizinhos mais próximos enquanto o atributo redudante pode dar peso maior para uma informação específica da base de dados durante o calculo da matriz de distância. Além disso o tempo de indução pode aumentar e, em alguns casos, gerar a perda de desempenho. 
+
+A remoção de amostras duplicadas normalmente é feita de forma simples através da remoção das amostras que apresentam o mesmo valor. A remoção de atributos redudantes pode ser feita de diversas formas: comparação, [correlação](https://pt.wikipedia.org/wiki/Correla%C3%A7%C3%A3o) e [seleção de atributos](https://en.wikipedia.org/wiki/Feature_selection). Se dois atributos são altamente correlacionados, é possível que estejam representando a mesma informação. A seleção de atributos utiliza alguma técnica específica como CFS, CIFE e técnicas de empacotamento.   
+
 #### Desbalanceamento
+
+
 
 #### Ruídos
 
