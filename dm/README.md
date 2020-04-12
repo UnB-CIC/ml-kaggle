@@ -83,6 +83,21 @@ A remoção de amostras duplicadas normalmente é feita de forma simples atravé
 
 ### Desbalanceamento
 
+O desbalanceamento de uma base de dados de classificação pode ser medido extraindo a porcentagem de amostras que temos para cada rótulo/classe da base. Se ocorrer uma disparidade entre as classes podemos dizer que ela é desbalanceada. Quanto maior essa disparidade entre as classes, mais desbalanceada ela é e maior deve ser o efeito causado nos modelos induzidos nessas bases de dados, principalmente para as classes com menor número de amostras. 
+
+Uma forma bem simples de medir o efeito causado é verificar a taxa de acerto dos modelos. Em uma base de classificação binária (com dois rótulos), caso a taxa de acerto seja inferior ou igual a classe majoritária, é possível afirmar que os modelos não esta aprendendo nenhum conceito relevante. Já em uma classe multirótulo (com dois ou mais rótulos) é possível utilizar medidas de avaliação mais interessantes como a taxa de acerto por classe ou a média geométrica para avaliar se os modelos iduzidos estão generalizando para todas as classes. 
+
+Existem diversas formas de tratar esse problema. As mais comuns são aquelas que procuram balancear artificialmente o conjunto de dados: (1) redefinindo o tamanho do conjunto de dados por acréscimo ou eliminação; (2) utilizando diferentes custos de classificação para as classes durante o processo de indução do algoritmo de AM e (3) induzindo um modelo específico de AM capaz de induzir modelos para uma única classe. Dentre as alternativas o mais comuns temos trabalhar nos dados (1) e alterar os pesos das amostras (2).
+
+* Técnicas de acréscimo/eliminação da classe minoritária/majoritária:
+   * [SMOTE, Bordeline-SMOTE, ADASYN, Random Oversampling e Undersampling](https://en.wikipedia.org/wiki/Oversampling_and_undersampling_in_data_analysis)
+
+* Utilizando custos de classificação:
+   * [SVM](https://scikit-learn.org/stable/auto_examples/svm/plot_weighted_samples.html), RNA *k*NN, e etc.
+
+* Algoritmos de classificação de uma classe:
+   * [One-class SVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html)
+
 ### Ruídos
 
 ### Transformação dos Dados
