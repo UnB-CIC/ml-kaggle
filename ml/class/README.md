@@ -1,4 +1,4 @@
-# Classificação
+# Algoritmos de Classificação
 
 ## Árvores de Decisão e Regressão
 
