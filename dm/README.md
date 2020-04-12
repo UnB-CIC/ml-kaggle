@@ -98,10 +98,23 @@ Existem diversas formas de tratar esse problema. As mais comuns são aquelas que
 * Algoritmos de classificação de uma classe:
    * [One-class SVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html)
 
-### Ruídos
+### Redução de Dimensionalidade
+
+Muitas bases de dados apresentam um número elevado de atributos preditivos. Exemplos de bases assim são as de expressão gênica e as de imagens. No caso das bases de expressão gênica, cada atributo pode estar relacionado a um alelo ou gene o que naturalmente pode escalar a milhares deles quando tentamos classificar uma determina doença. O mesmo acontece com as bases de imagens. Nesse caso, cada pixel pode representar um atributo e em uma imagem pequena como 256 x 256 teríamos 65536 atributos. No entanto, somente algumas técnicas de AM conseguem lidar bem com esse alto número de atributos. Esse problema é descrito na literatura como o problema da maldição da dimensionalidade. 
+
+Existem diversas formas de reduzir a dimensionalidade na etapa de pré-processamento. A Agregação e Seleção de atributos são as formas mais comuns. Enquanto as técnicas de agregação substituem os atributos originais por novos atributos formados pela combinação de grupos desses, as técnicas de seleção mantêm uma parte dos atributos originais e descarta os demais. Nesse último é comum ainda separar a classificação em baseada em filtro e baseada em *wrapper*. Enquanto as técnicas baseadas em filtro fazem uso de alguma medida estatística para a seleção dos atributos, a baseada em *wrapper* utiliza o próprio algoritmo de AM para uma seleção caixa-preta. Essa seleção normalmente é guiada por alguma estratégia de busca como *backward generalization* ou *forward generalization*.    
+
+Seguem alguns exemplos de técnicas:
+
+* Agregação dos Atributos
+  * [Análise de Componentes Principais (PCA)](https://en.wikipedia.org/wiki/Principal_component_analysis)
+
+* Seleção dos Atributos baseada em Filtro
+  * [CFS, CIFE, etc.](https://en.wikipedia.org/wiki/Feature_selection#Filter_method)
+
+* Seleção dos Atributos baseada em *wrapper*
+  * [RFE](https://en.wikipedia.org/wiki/Feature_selection#Wrapper_method)
 
 ### Transformação dos Dados
-
-### Redução de Dimensionalidade
 
 
