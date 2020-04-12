@@ -45,7 +45,7 @@ Sem viés não haverá aprendizado. Portanto, todos os algoritmos de AM apresent
 O viés de representação está associado a forma como cada algoritmo de AM representa o conhecimento para descrever a hipótese induzida. A Árvore de Decisão (AD) representa o conhecimento por meio de uma estrutura de dados na forma de árvore. Os nós dessa árvore são perguntas a respeito de um atributo que levam aos nós folhas associados a uma classe da base de dados. Quando um novo exemplo é apresentado a esse modelo, a AD é percorrida da raíz até as folhas. Em uma Rede Neural Artificial (RNA) o modelo pode ser representado por matrizes que armazenam os valores dos pesos das conexões entre os neurônios e as diversas camadas da rede. Uma vez treinada (pesos calibrados), a rede propaga os novos exemplos multiplicando os valores de entrada com os pesos das conexões até a camada de saída.        
 
 ![](vies_representacao.png) 
-*Exemplo de viés de representação para uma AD e Redes Neurais. Adaptado de Katti Faceli et al., (2011)*
+*Exemplo de viés de representação para uma AD e Redes Neurais.*
 
 ### Viés de Busca
 
