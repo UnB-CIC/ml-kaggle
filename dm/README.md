@@ -117,4 +117,21 @@ Seguem alguns exemplos de técnicas:
 
 ### Transformação dos Dados
 
+A transformação das bases de dados é um requisito fundamental no uso das técnicas de AM. Muitas dessas técnicas lidam somente com valores numéricos e outras somente com valores categóricos. Algumas delas são influenciadas pelo intervalo dos atributos numéricos exigindo a normalização dos dados. Portanto, é importante utilizar técnicas que sejam capazes de transformar os dados da melhor forma possível.
+
+A conversão simbólico-numérico é necessária quando a base de dados apresenta atributos categóricos e as técnicas que pretende utilizar são as RNA e Máquinas de Vetores Suporte (SVM). Se o atributo categórico assume somente dois valores, a transformação natural é substituir os valores por zeros e uns. Para um atributo categórico com mais de dois valores, uma transformação bastante utilizada é a *c*-bits, onde *c* representa o número de categorias.    
+
+O conjunto de dados *Jogar Tênis* é um problema de classificação binária em que pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Um dos atributos dessa base é o *Tempo* com as categorias *Ensolarado*, *Nublado* e *Chuvoso*.  Utilizando a codificação *c*-bits, temos que *c* é 3 e portanto precisamos de 3 atributos numéricos para codificar esse atributo categórico. Assim, podemos codificar *Ensolarado* como "1,0,0", *Nublado* como "0,1,0" e *Chuvoso* como "0,0,1". Calculado a distância entre esses pontos, percebemos que eles são equidistantes. Caso exista relação de ordem entre as categorias, por exemplo dias da semana, podemos usar valores inteiros ou reais ordenados para representar essas informações. 
+
+Algumas vezes um valor numérico de um atributo precisa ser transformado em outro valor numérico. Isso normalmente acontece quando os valores superiores e inferiores entre os atributos são muito distintos. O objetivo principal é evitar  que um atributo predomine sobre outro. Essa transformação é chamada de normalização.
+
+A normalização por amplitude é a mais utilizada. Ela se baseia na reescala ou padronização. Enquanto a reescala utiliza os valores máximos e mínimos, a padronização usa a média e o desvio padrão. Ambas são aplicadas isoladamente em cada atributo da base de dados. Enquanto a reescala normaliza os valores máximos e mínimos de cada atributo entre 0 e 1, a padronização mantém a média em 0 e o desvio padrão em 1. 
+
+Assumindo que uma base de dados é representado por uma matriz <img src="https://render.githubusercontent.com/render/math?math=X_{nxd}"/> onde *n* é o número de objetos e *d* é o número de atributos de entrada e <img src="https://render.githubusercontent.com/render/math?math=x^j"/> é o atributo *j* da base, então temos:
+
+* Reescala:
+<img src="https://render.githubusercontent.com/render/math?math=x^j = \frac{x^j - min(x^j)}{max(x^j) - min(x^j)}"/>
+
+* Padronização:
+<img src="https://render.githubusercontent.com/render/math?math=x^j = \frac{x^j - mean(x^j)}{sd(x^j)}"/>
 
