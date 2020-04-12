@@ -73,7 +73,7 @@ Existem diversas formas de tratar esses valores ausêntes: (1) a mais simples é
 
 Nessa última abordagem que utiliza algoritmos de AM como heurística para o preenchimento de valores ausêntes, uma possível solução seria utilizar o algoritmo *k*NN para indicar o valor mais frequente das *k* amostras mais semelhantes daquele com valor ausênte a ser estimado. Nesse caso, o atributo alvo poderia ser utilziado como se fosse um atributo preditivo e o atributo com valor ausênte o atributo alvo ou aquele a ser estimado.
 
-#### Redudantes
+### Redudantes
 
 As bases de dados podem apresentar tanto amostras quanto atributos redundantes. Uma amostras ou atributo é classificado como redundante quando eles aprensentam outra amostra ou atributo muito semelhante ao original. Normalmente esse tipo de problema é causado durante a fase de coleta ou integração dos dados. O impacto deles durante o processo de indução vai depdender do algoritmo de AM, mas no geral podemos dizer que pode ocorrer intereferencia. Essa interferencia normalmente esta associada a um peso ou importancia maior a amostra ou atributo redudante contribuindo mais no modelo final. 
 
@@ -81,11 +81,9 @@ O algoritmo *k*NN por exemplo, é muito influenciado por ambos, amostras e atrib
 
 A remoção de amostras duplicadas normalmente é feita de forma simples através da remoção das amostras que apresentam o mesmo valor. A remoção de atributos redudantes pode ser feita de diversas formas: comparação, [correlação](https://pt.wikipedia.org/wiki/Correla%C3%A7%C3%A3o) e [seleção de atributos](https://en.wikipedia.org/wiki/Feature_selection). Se dois atributos são altamente correlacionados, é possível que estejam representando a mesma informação. A seleção de atributos utiliza alguma técnica específica como CFS, CIFE e técnicas de empacotamento.   
 
-#### Desbalanceamento
+### Desbalanceamento
 
-
-
-#### Ruídos
+### Ruídos
 
 ### Transformação dos Dados
 
