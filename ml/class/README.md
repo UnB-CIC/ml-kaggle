@@ -1,6 +1,23 @@
 # Algoritmos de Classificação
 
-## Árvores de Decisão e Regressão
+## k-Vizinhos Mais Próximos
+
+A motivação fundamental das técnicas baseadas em distânia é que dados similares tendem a estar concentrados em uma mesma região no espaço de entreda. Por espaço de entreda, podemos entender os atributos preditivos da base. No k-vizinhos mais próximos (kNN), cada objetio representa um ponto no espaço definido pelos atributos de entrada. Uma vez definida uma métrica de similaridade, é possível calcular a distância entre cada dois pontos. A métrica mais utilizada é a distância Euclidiana mostrada na formúla a seguir. Nessa fórmula, <img src="https://render.githubusercontent.com/render/math?math=x_{i}^{l})"> e  <img src="https://render.githubusercontent.com/render/math?math=x_{j}^{l})"> são objetos representados por <img src="https://render.githubusercontent.com/render/math?math=l"> atributos. Perceba que os objetos precisam ser valores reais e que caso não estejam normalizados, isso pode impactar no calculo da distância Euclidiana.   
+
+<img src="https://render.githubusercontent.com/render/math?math=d(x_i, x_j) = \sqrt{\sum_{l=1}^{d}(x_{i}^{l} - x_{j}^{l}) }">
+
+A variação mais simples do algoritmo kNN é o 1NN. O algoritmo 1NN é apresentado na seguência. Na fase de treinamento o algoritmo memoriza os exemplos rotulados da base de dados. Por conta disso é classificado como um algoritmo preguiçoso ou *lazy*. Na fase de teste, quando um exemplo não rotulado é apresentado para o algoritmo, é calculada a distância entre esse novo exemplo e cada um dos exemplos rotulados da base de treinamento. O rótulo da classe associado ao exemplo de treinamento mais próximo do exemplo de teste é utilizado para classificar o novo exemplo.
+
+![](knn_alg.png) *Algoritmo do 1NN. Adaptado de Katti Faceli et al., (2011)*
+
+
+
+![](knn.png) *Exemplo ilustrativo do 1NN e 3NN para uma base binária*
+
+## Naive Bayes 
+
+
+## Árvores de Decisão
 
 As [Árvores de Decisão](https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o) e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de [divisão e consquista](https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista) que recursivamente tende a diminuir a complexidade do problema tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.
 
