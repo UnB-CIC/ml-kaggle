@@ -6,13 +6,18 @@ A motivação fundamental das técnicas baseadas em vizinhança é que dados sim
 
 <img src="https://render.githubusercontent.com/render/math?math=d(x_i, x_j) = \sqrt{\sum_{l=1}^{d}(x_{i}^{l} - x_{j}^{l}) }">
 
-A variação mais simples do algoritmo kNN é o 1NN apresentado na seguência. Na fase de treinamento o algoritmo memoriza os exemplos rotulados da base de dados. Por conta disso é classificado como um algoritmo preguiçoso ou *lazy*. Na fase de teste, quando um exemplo não rotulado é apresentado para o algoritmo, é calculada a distância entre esse novo exemplo e cada um dos exemplos rotulados da base de treinamento. O rótulo da classe associado ao exemplo de treinamento mais próximo do exemplo de teste é utilizado para classificar o novo exemplo.
+A variação mais simples do algoritmo kNN é o 1NN apresentado na seguência. Na fase de treinamento o algoritmo memoriza os exemplos rotulados da base de dados. Na fase de teste, quando um exemplo não rotulado é apresentado para o algoritmo, é calculada a distância entre esse novo exemplo e cada um dos exemplos rotulados da base de treinamento. O rótulo da classe associado ao exemplo de treinamento mais próximo do exemplo de teste é utilizado para classificar o novo exemplo.
 
 ![](knn_alg.png) *Algoritmo do 1NN. Adaptado de Katti Faceli et al., (2011)*
+
+A extensão imediata do 1NN é o kNN, aonde *k* objetos mais próximos são considerados. Nessa nova configuração, a previsão dos diferentes vizinhos mais próximos são agregadas de forma a classificar a amostra de teste. A forma mais comum para agregar os votos é por maioria. Para evitar empates na votação é comum escolher valores pequenos e impares para *k*. 
+
 
 A Figura a seguir mostra a aplicação do algoritmo 1NN e 3NN em um problema binário. Nessa base, cada amostra pode ser considerada saudável (circulos vermelhos) e doentes (quadrados azuis). O espaço de entreda é definido pelos dois atributos que estão relacionados ao Exame 1 e 2. O triangulo branco representa o exemplo de teste a ser rotulado. Utilizando o algoritmo 1NN com distância euclidiana, podemos definir o vizinho mais próximo como sendo da classe quadrado azul. Utilizando o algoritmo 3NN com distância euclidiana e voto por maioria, podemos definir o rótumo do exemplo de teste como sendo quadrado azul.
 
 ![](knn.png) *Exemplo ilustrativo do 1NN e 3NN para uma base binária*
+
+As principais vantagens desse algoritmo são: a fase de treinamento é simples por simplesmente armazenar o conjunto de treinamento; é aplicavel em quase qualquer problema; e o algoritmo pode ser incremental, ou seja, novos exemplos de treinamento podem ser adicionados naturalmente sem retreinamento. As principais desvantagens são: o algoritmo não constroi um modelo explicito sobre os dados; a predição é custosa por exigir o calculo da distância entre todas as amostradas da base de dados; pode ser influenciado pelos atributos caso eles não sejam normalizados; e a dimiensionalidade muito alta pode impactar negativamente o desempenho do algoritmo.
 
 ## Naive Bayes 
 
