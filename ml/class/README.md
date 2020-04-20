@@ -115,7 +115,7 @@ Portanto devemos jogar tênis!
 
 Outras versões desse mesmo algoritmo:
   * [NB](https://scikit-learn.org/stable/modules/naive_bayes.html)
-  * [Versões NB] (https://en.wikipedia.org/wiki/Naive_Bayes_classifier#Parameter_estimation_and_event_models)
+  * [Versões NB](https://en.wikipedia.org/wiki/Naive_Bayes_classifier#Parameter_estimation_and_event_models)
 
 ## Árvores de Decisão
 
