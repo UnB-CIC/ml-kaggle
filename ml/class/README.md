@@ -27,7 +27,32 @@ Versões eficientes desse mesmo algoritmo:
 
 ## Naive Bayes 
 
+Uma forma de lidar com dados ruidosos e imprecisos é utilizando algoritmos baseados no Teorema de Bayes. O Teorema de Bayes assume que a probabilidade de um evento A ocorrer dado um outro evento B, depende da relação entre ambos além da probabilidade de observar esses eventos de forma independentes. Nessa definição, a probabilidade de ocorrencia do evento A e B podem ser estimada pela frequência com que esses eventos ocorrem de forma independete P(A) e P(B). De forma semelhante é possível estimar a probabilidade de um evento ocorrer dado B para cada evento A por meio da probababilidade P(B|A). Com isso podemos estimar a probabilidade de A ocorrer dado B, ou seja, P(A|B). Teorema de Bayes pode ser definido como:
 
+<img src="https://render.githubusercontent.com/render/math?math=P(A|B) = \frac{P(B|A)*P(A)}{P(B)}">
+
+De forma analoga podemos reescrever esse teorema para calcular a probabidade de ocorrencia de cada uma das classes <img src="https://render.githubusercontent.com/render/math?math=y_l"> de uma base de dado para uma amostra <img src="https://render.githubusercontent.com/render/math?math=x">:
+
+<img src="https://render.githubusercontent.com/render/math?math=P(y_l|x) = \frac{P(x|y_l)*P(y_l)}{P(x)}">
+
+Aquela classe <img src="https://render.githubusercontent.com/render/math?math=y_l"> que maximizar a probabilidade *a posteori* deve ser a classe com maior proabilidade. Portanto, temos:
+
+<img src="https://render.githubusercontent.com/render/math?math=y_{MAP} = arg max_l \frac{P(x|y_l)*P(y_l)}{P(x)}">
+
+Como o denominador <img src="https://render.githubusercontent.com/render/math?math=P(x)"> é constante para todas as classes <img src="https://render.githubusercontent.com/render/math?math=y_l">, podemos reescrever a expressão como:   
+
+<img src="https://render.githubusercontent.com/render/math?math=y_{MAP} = arg max_l P(x|y_l)*P(y_l)">
+
+Expandido a segunda parte da equação temos: 
+
+<img src="https://render.githubusercontent.com/render/math?math=P(x|y_l)*P(y_l)=">
+<img src="https://render.githubusercontent.com/render/math?math==P(x_1,...,x_d|y_l)*P(y_l)="> 
+<img src="https://render.githubusercontent.com/render/math?math==P(x_1|y_l)*P(x_2,...,x_d|y_l,x_1)*P(y_l)="> <img src="https://render.githubusercontent.com/render/math?math==P(x_1|y_l)*P(x_2|y_l,x_1)*P(x_3,...,x_d|y_l,x_1,x_2)*P(y_l)="> <img src="https://render.githubusercontent.com/render/math?math=..."> 
+<img src="https://render.githubusercontent.com/render/math?math==P(x_1|y_l)*P(x_2|y_l,x_1)*P(x_3|y_i,x_1,x_2) *...* P(x_d|y_i,x_1,x_2,...,x_{d-1})*P(y_l)">
+
+Infelizmente é computacionalmente **impraticável calcular todas essas probabilidades**. Pensando nisso, simplificações são propostas. Uma delas, assume que os valores dos atributos é independente, portanto a probabilidade <img src="https://render.githubusercontent.com/render/math?math=P(x|y_l)"> pode ser decomposta em <img src="https://render.githubusercontent.com/render/math?math=P(x_1|y_l)*P(x_2|y_l)*P(x_3|y_l)*...*P(x_d|y_l)">. Portanto, podemos definir a probabilidade de uma amostra pertencer a uma classe como:
+
+<img src="https://render.githubusercontent.com/render/math?math=P(y_l|x)=P(y_l)*\prod_{j=1}^{d}P(x_j|y_l)">
 
 ## Árvores de Decisão
 
