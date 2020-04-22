@@ -29,11 +29,11 @@ Versões eficientes desse mesmo algoritmo:
 
 ## Naive Bayes 
 
-Uma forma de lidar com dados ruidosos e imprecisos é utilizando algoritmos baseados no Teorema de Bayes. O Teorema de Bayes assume que a probabilidade de um evento A ocorrer dado um outro evento B, depende da relação entre ambos além da probabilidade de observar esses eventos de forma independentes. Nessa definição, a probabilidade de ocorrencia do evento A e B podem ser estimada pela frequência com que esses eventos ocorrem de forma independente P(A) e P(B). De forma semelhante é possível estimar a probabilidade de um evento ocorrer dado B para cada evento A por meio da probabilidade P(B|A). Com isso podemos estimar a probabilidade de A ocorrer dado B, ou seja, P(A|B). Teorema de Bayes pode ser definido como:
+Uma forma de lidar com dados ruidosos e imprecisos é utilizando algoritmos baseados no Teorema de Bayes. O Teorema de Bayes assume que a probabilidade de um evento A ocorrer dado um outro evento B, depende da relação entre ambos, além da probabilidade de observar esses eventos de forma independentes. Nessa definição, a probabilidade de ocorrência do evento A e B podem ser estimada pela frequência com que esses eventos ocorrem de forma independente P(A) e P(B). De forma semelhante, é possível estimar a probabilidade de um evento ocorrer dado B para cada evento A por meio da probabilidade P(B|A). Com isso podemos estimar a probabilidade de A ocorrer dado B, ou seja, P(A|B). O Teorema de Bayes pode ser definido como:
 
 <img src="https://render.githubusercontent.com/render/math?math=P(A|B) = \frac{P(B|A)*P(A)}{P(B)}">
 
-De forma analoga podemos reescrever esse teorema para calcular a probabidade de ocorrencia de cada uma das classes <img src="https://render.githubusercontent.com/render/math?math=y_l"> de uma base de dado para uma amostra <img src="https://render.githubusercontent.com/render/math?math=x">:
+De forma análoga podemos reescrever esse teorema para calcular a probabidade de ocorrência de cada uma das classes <img src="https://render.githubusercontent.com/render/math?math=y_l"> de uma base de dado para uma amostra <img src="https://render.githubusercontent.com/render/math?math=x">:
 
 <img src="https://render.githubusercontent.com/render/math?math=P(y_l|x) = \frac{P(x|y_l)*P(y_l)}{P(x)}">
 
@@ -45,7 +45,7 @@ Como o denominador <img src="https://render.githubusercontent.com/render/math?ma
 
 <img src="https://render.githubusercontent.com/render/math?math=y_{MAP} = arg max_l P(x|y_l)*P(y_l)">
 
-Expandido a segunda parte da equação temos: 
+Expandindo a segunda parte da equação temos: 
 
 <img src="https://render.githubusercontent.com/render/math?math=P(x|y_l)*P(y_l)=">
 <img src="https://render.githubusercontent.com/render/math?math==P(x_1,...,x_d|y_l)*P(y_l)="> 
@@ -56,11 +56,11 @@ Infelizmente é computacionalmente **impraticável calcular todas essas probabil
 
 <img src="https://render.githubusercontent.com/render/math?math=P(y_l|x)=P(y_l)*\prod_{j=1}^{d}P(x_j|y_l)">
 
-As principais vantagens desse algoritmo são: sua eficiência, uma vez que todas as probabilidades podem ser calculadas na etapa de treinamento; a construção do modelo é eficiente além de ser de fácil implementação; o algoritmo também é robusto a ruídos e atributos irrelevantes. As principais desvantagens são: o algoritmo desconsidera a dependência entre os atributos o que pode ser danoso para uma gama de problemas reais; ele traça hiperplanos lineares o que também pode não ser suficiente dependendo da complexidade do problema; e ele necessita de adaptações quando os atributos são numéricos.   
+As principais vantagens desse algoritmo são: sua eficiência, uma vez que todas as probabilidades podem ser calculadas na etapa de treinamento; a construção do modelo é eficiente além de ser de fácil implementação; o algoritmo também é robusto a ruídos e atributos irrelevantes. As principais desvantagens são: o algoritmo desconsidera a dependência entre os atributos o que pode ser danoso para uma gama de problemas reais; ele traça hiperplanos lineares (o que também pode não ser suficiente dependendo da complexidade do problema); e ele necessita de adaptações quando os atributos são numéricos.   
 
 ### Exemplo Ilustrativo
 
-O conjunto de dados *Jogar Tênis* é um problema de classificação binária aonde pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. O conjunto tem 14 amostras de treinamento e a última coluna denominada *Joga* representa os rótulos jogar ou não tênis. Os atributos *Tempo* e *Vento* são categóricos e os atributos *Temperatura* e *Umidade* são contínuos.
+O conjunto de dados *Jogar Tênis* é um problema de classificação binária em que pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. O conjunto tem 14 amostras de treinamento e a última coluna denominada *Joga* representa os rótulos jogar ou não tênis. Os atributos *Tempo* e *Vento* são categóricos e os atributos *Temperatura* e *Umidade* são contínuos.
 
 ![](jogatenis.png) 
 *Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
