@@ -119,7 +119,7 @@ Outras versões desse mesmo algoritmo:
 
 ## Árvores de Decisão
 
-As [Árvores de Decisão](https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o) e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de [divisão e consquista](https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista) que recursivamente tende a diminuir a complexidade do problema,  tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.
+As [Árvores de Decisão](https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o) e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de [divisão e conquista](https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista) que recursivamente tende a diminuir a complexidade do problema,  tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.
 
 ### Componentes de uma AD
 
@@ -131,7 +131,7 @@ Formalmente uma AD é um grafo acíclico direcionado em que cada nó é um nó d
 
 ### Uma AD genérica
 
-A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos  (x<sub>1</sub> e x<sub>2</sub>). Cada nó da árvore corresponde a uma região nesse espaço. As regiões nos nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e paralelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
+A Figura a seguir representa uma AD e sua divisão no espaço para uma base de dados com dois atributos preditivos  (x<sub>1</sub> e x<sub>2</sub>). Cada nó da árvore corresponde a uma região nesse espaço. Os nós folhas são mutualmente excludentes e a junção de todas as regiões cobre todo o espaço definido pelos atributos. Os hiperplanos gerados são ortogonais aos eixos dos atributos testados e paralelo a todos os outros eixos. Todas as regiões são hiper-retângulos.
 
 ![](ad.png) *Exemplo de uma Árvore de Decisão. Adaptado de Katti Faceli et al., (2011)*
 
@@ -141,7 +141,7 @@ O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o
 
 ![](ad_alg.png) *Algoritmo de uma Árvore de Decisão. Adaptado de Katti Faceli et al., (2011)*
 
-É ressaltar que a geração de uma árvore minimal é um problema [NP-completo](https://pt.wikipedia.org/wiki/NP-completo). Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomanda ela nunca é desfeita. Isso pode gerar uma solução ótima localmente, o que pode estar longe do [ótimo global](https://pt.wikipedia.org/wiki/Algoritmo_guloso).
+É ressaltar que a geração de uma árvore minimal é um problema [NP-completo](https://pt.wikipedia.org/wiki/NP-completo). Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomada ela nunca é desfeita. Isso pode gerar uma solução ótima localmente, o que pode estar longe do [ótimo global](https://pt.wikipedia.org/wiki/Algoritmo_guloso).
 
 ### Regras de Divisão para Classificação
 
@@ -151,19 +151,19 @@ Considere um nó *t* de divisão de uma AD em que a probabilidade de observar ex
 
 Nessa equação P<sub>L</sub> e P<sub>R</sub> representam a probabilidade de um exemplo quando aplicado a regra de divisão pertencer ao subconjunto L ou R, respectivamente.
 
-A função de impureza apresentam características gerais como: simetria, ter máximo quando <img src="https://render.githubusercontent.com/render/math?math=p_1 = p_2 = ... = p_n"> e ter um mínimo quando <img src="https://render.githubusercontent.com/render/math?math=p_i = 1">. Logo, a proposta natural de uma AD deve tentar maximar a divisão dos subconjuntos que geram menor erro. Portanto, uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilidade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilidade máxima. Casos intermediários são tratados de forma diferente por cada medida de impureza.
+A função de impureza apresenta características gerais como: simetria, ter máximo quando <img src="https://render.githubusercontent.com/render/math?math=p_1 = p_2 = ... = p_n"> e ter um mínimo quando <img src="https://render.githubusercontent.com/render/math?math=p_i = 1">. Logo, a proposta natural de uma AD deve tentar maximizar a divisão dos subconjuntos que geram menor erro. Portanto, uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilidade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilidade máxima. Casos intermediários são tratados de forma diferente por cada medida de impureza.
 
 #### Entropia e Ganho de Informação
 
 Existem diversas medidas de impureza como ganho de informação, entropia, distância, ângulo, qui-quadrado e etc. Nessa seção vamos abordar a entropia e ganho de informação, medidas base para o entendimento do algoritmo [C4.5](https://pt.wikipedia.org/wiki/Algoritmo_C4.5) proposto por Ross Quinlan em 1993.
 
-A entropia mede a aleatoriedade de uma variável aleatória em bits. Suponha uma variável aleatória A com domínio <img src="https://render.githubusercontent.com/render/math?math=a_1,a_2,...,a_v">. Suponha que a probabilidade de observar os valores são <img src="https://render.githubusercontent.com/render/math?math=p_1,p_2,...,p_v">. A entropis de A é calculada como:
+A entropia mede a aleatoriedade de uma variável aleatória em bits. Suponha uma variável aleatória A com domínio <img src="https://render.githubusercontent.com/render/math?math=a_1,a_2,...,a_v">. Suponha que a probabilidade de observar os valores são <img src="https://render.githubusercontent.com/render/math?math=p_1,p_2,...,p_v">. A entropia de A é calculada como:
 
 <img src="https://render.githubusercontent.com/render/math?math=H(A) = -\sum_{i}p_i \ln p_i">
 
 Em uma AD, entropia é usada para medir a aleatoriedade do atributo alvo. A cada nó de decisão da árvore, o atributo que mais reduz a aleatoriedade da variável alvo será escolhido para dividir os dados. O ganho de informação é medido em cada atributo para verificar o quanto eles reduzem a entropia do sistema. Portanto o ganho de informação é medido como a diferença da entropia do conjunto de dados e a soma ponderada da entropia das partições.
 
-Assumindo que temos um problema de classificação binária, ou seja, duas classes e que cada uma delas tenha *p* e *q* exemplos no conjunto de treinamento, respectivamente. Dessa forma podemos calcular a entropa das classes da seguinte forma:
+Assumindo que temos um problema de classificação binária, ou seja, duas classes e que cada uma delas tenha *p* e *q* exemplos no conjunto de treinamento, respectivamente. Dessa forma podemos calcular a entropia das classes da seguinte forma:
 
 <img src="https://render.githubusercontent.com/render/math?math=H(p,q) = -\frac{p}{p %2B q} \ln \frac{p}{p %2B q} - \frac{q}{p %2B q} \ln \frac{q}{p%2B q}">
 
@@ -175,7 +175,7 @@ Uma vez que sabemos a entropia do conjunto de dados e a entropia do atributo A, 
 
 <img src="https://render.githubusercontent.com/render/math?math=IG(A,p,q) = H(p,q) - E(A,p,q)">
 
-A heurística apresentada deve ser aplicada para todos atributos da base com o ojetivo de selecionar aquele que maximiza o ganho de informação para aquele conjunto de dados. Como mencionado, normalmente os testes são realizados em atributos nominais e irá dividir os dados em tantos subconjuntos quantos os valores do atributo.
+A heurística apresentada deve ser aplicada para todos atributos da base com o objetivo de selecionar aquele que maximiza o ganho de informação para aquele conjunto de dados. Como mencionado, normalmente os testes são realizados em atributos nominais e irá dividir os dados em tantos subconjuntos quantos os valores do atributo.
 
 ### Exemplo Ilustrativo
 
@@ -271,24 +271,14 @@ Essa equação é aplicada para todos os atributos e todas as categorias ou pont
 
 ### Estratégia de poda
 
-As estatísticas calculadas em nós mais razos em uma AD costumam ser os mais importantes enquanto estatísticas de nós mais profundos costumam ter níveis de importância menores. Isso se dá porque os nós mais rasos refletem os conceitos mais gerais enquanto os mais profundos, os conceitos mais específicos e normalmente relacionados ao [super ajustamento](https://pt.wikipedia.org/wiki/Sobreajuste). O super ajustamento está diretamente relacionado ao tamanho da árvore. Quanto maior, mais super ajustada e mais difícil de ser interpretada. Portanto, podar uma árvore, que é trocar nós profundos por nós folhas, pode ajudar a minimizar esse problema.
+As estatísticas calculadas em nós mais rasos em uma AD costumam ser os mais importantes enquanto estatísticas de nós mais profundos costumam ter níveis de importância menores. Isso se dá porque os nós mais rasos refletem os conceitos mais gerais enquanto os mais profundos, os conceitos mais específicos e normalmente relacionados ao [superajustamento](https://pt.wikipedia.org/wiki/Sobreajuste). O superajustamento está diretamente relacionado ao tamanho da árvore. Quanto maior, mais superajustada e mais difícil de ser interpretada. Portanto, podar uma árvore, que é trocar nós profundos por nós folhas, pode ajudar a minimizar esse problema.
 
 A troca dos nós mais profundos por folhas pode causar a classificação errônea de alguns exemplos do conjunto de treinamento. Apensar de parecer contra-intuitivo, isso pode melhorar o desempenho para exemplos novos nunca antes vistos. Os métodos de poda mais conhecidos são: pré-poda e pós-poda. Enquanto a pré-poda é realizada durante a construção da árvore, a pós-poda é realizada depois da construção da árvore.
 
-## _Bootstrap_
 
 ## _Random Forest_
-
-## _Boosting_
-
-## _Gradient Boosting_
 
 ## _XGBoost_
 
 ## Redes Neurais Artificiais
 
-### _Perceptron_
-
-### _Perceptron_ Multicamadas
-
-### Algoritmo _Backpropagation_
