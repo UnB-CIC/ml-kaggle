@@ -119,7 +119,7 @@ Outras versões desse mesmo algoritmo:
 
 ## Árvores de Decisão
 
-As [Árvores de Decisão](https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o) e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de [divisão e consquista](https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista) que recursivamente tende a diminuir a complexidade do problema tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.
+As [Árvores de Decisão](https://pt.wikipedia.org/wiki/%C3%81rvore_de_decis%C3%A3o) e Regressão são algoritmos supervisionados. O objetivo principal é induzir um modelo que seja capaz de predizer uma classe/rótulo/valor de uma variável resposta por meio do aprendizado de regras simples inferidas do conjunto de treinamento. Essas regras são geradas por meio da estratégia de [divisão e consquista](https://pt.wikipedia.org/wiki/Divis%C3%A3o_e_conquista) que recursivamente tende a diminuir a complexidade do problema,  tornando-o mais simples. A combinação dessas regras produz uma árvore capaz de gerar uma solução para o problema complexo. Os modelos em árvore são designados Árvores de Decisão (AD) para problemas de classificação e Árvores de Regressão (AR) para problemas de regressão.
 
 ### Componentes de uma AD
 
@@ -137,11 +137,11 @@ A Figura a seguir representa uma AD e sua divisão no espaço para uma base de d
 
 ### Algoritmo
 
-O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o conjunto de treinamento **D** e sua saída é uma AD. Na sequencia o critério de parada é avaliado. Se mais divisões do conjunto de treinamento são necessárias, é escolhido um atributo que maximiza alguma medida de impureza. Na sequencia a função de geração da árvore é chamada recursivamente e aplicada a uma partição do conjunto de treinamento **D**.
+O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o conjunto de treinamento **D** e sua saída é uma AD. Na sequência o critério de parada é avaliado. Se mais divisões do conjunto de treinamento são necessárias, é escolhido um atributo que maximiza alguma medida de impureza. Na sequência a função de geração da árvore é chamada recursivamente e aplicada a uma partição do conjunto de treinamento **D**.
 
 ![](ad_alg.png) *Algoritmo de uma Árvore de Decisão. Adaptado de Katti Faceli et al., (2011)*
 
-É ressaltar que a geração de uma árvore minimal é um problema [NP-completo](https://pt.wikipedia.org/wiki/NP-completo). Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomanda ela nunca é desfeita. Isso pode gerar uma solução ótima localmente o que pode estar longe do [ótimo global](https://pt.wikipedia.org/wiki/Algoritmo_guloso).
+É ressaltar que a geração de uma árvore minimal é um problema [NP-completo](https://pt.wikipedia.org/wiki/NP-completo). Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomanda ela nunca é desfeita. Isso pode gerar uma solução ótima localmente, o que pode estar longe do [ótimo global](https://pt.wikipedia.org/wiki/Algoritmo_guloso).
 
 ### Regras de Divisão para Classificação
 
@@ -151,7 +151,7 @@ Considere um nó *t* de divisão de uma AD em que a probabilidade de observar ex
 
 Nessa equação P<sub>L</sub> e P<sub>R</sub> representam a probabilidade de um exemplo quando aplicado a regra de divisão pertencer ao subconjunto L ou R, respectivamente.
 
-A função de impureza apresentam caracteristicas gerais como: simetria, ter máximo quando <img src="https://render.githubusercontent.com/render/math?math=p_1 = p_2 = ... = p_n"> e ter um mínimo quando <img src="https://render.githubusercontent.com/render/math?math=p_i = 1">. Logo a proposta natural de uma AD deve tentar maximar a divisão dos subconjuntos que geram menor erro. Portanto uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilizade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilizade máxima. Casos intermediarios são tratados de forma diferente por cada medida de impureza.
+A função de impureza apresentam características gerais como: simetria, ter máximo quando <img src="https://render.githubusercontent.com/render/math?math=p_1 = p_2 = ... = p_n"> e ter um mínimo quando <img src="https://render.githubusercontent.com/render/math?math=p_i = 1">. Logo, a proposta natural de uma AD deve tentar maximar a divisão dos subconjuntos que geram menor erro. Portanto, uma divisão que mantém a proporção de classes em todo o subconjunto não tem utilidade e uma divisão em que cada subconjunto contém somente exemplos de uma classe tem utilidade máxima. Casos intermediários são tratados de forma diferente por cada medida de impureza.
 
 #### Entropia e Ganho de Informação
 
@@ -175,15 +175,15 @@ Uma vez que sabemos a entropia do conjunto de dados e a entropia do atributo A, 
 
 <img src="https://render.githubusercontent.com/render/math?math=IG(A,p,q) = H(p,q) - E(A,p,q)">
 
-A heurística apresentada deve ser aplicada para todos atributos da base com o bojetivo de selecionar aquele que maximiza o ganho de infromação para aquele conjunto de dados. Como mensionado, normalmente os testes são realizados em atributos nominais e irá dividir os dados em tantos subconjuntos quantos os valores do atributo.
+A heurística apresentada deve ser aplicada para todos atributos da base com o ojetivo de selecionar aquele que maximiza o ganho de informação para aquele conjunto de dados. Como mencionado, normalmente os testes são realizados em atributos nominais e irá dividir os dados em tantos subconjuntos quantos os valores do atributo.
 
 ### Exemplo Ilustrativo
 
-O conjunto de dados *Jogar Tênis* é um problema de classificação binária aonde pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. O conjunto tem 14 amostras de treinamento e a última coluna denominada *Joga* representa os rótulos jogar ou não tênis. Os atributos *Tempo* e *Vento* são categoricos e os atributos *Temperatura* e *Umidade* são contínuos.
+O conjunto de dados *Jogar Tênis* é um problema de classificação binária em que pretende-se classificar se uma pessoa deve ou não, dado certas condições climáticas, jogar tênis. Os atributos de entrada são o *Tempo*, *Temperatura*, *Umidade* e *Vento*. O conjunto tem 14 amostras de treinamento e a última coluna denominada *Joga* representa os rótulos jogar ou não tênis. Os atributos *Tempo* e *Vento* são categóricos e os atributos *Temperatura* e *Umidade* são contínuos.
 
 ![](jogatenis.png) *Base de dados Jogar Tênis. Adaptado de Katti Faceli et al., (2011)*
 
-Para construir uma AD precisamos descobrir o atributo que melhor discrimina as classes. Para isso precisamos calcular as probabilidades associadas de cada classe, a entropia do conjunto de treinamento, a entropia das partições e então estimar o ganho de informação de cada atributo. A seguir iremos calcular o ganho de informação do atributo *Tempo*.
+Para construir uma AD precisamos descobrir o atributo que melhor discrimina as classes. Para isso, precisamos calcular as probabilidades associadas de cada classe, a entropia do conjunto de treinamento, a entropia das partições e então estimar o ganho de informação de cada atributo. A seguir iremos calcular o ganho de informação do atributo *Tempo*.
 
 **1⁰ Passo:**
 
@@ -223,7 +223,7 @@ Estimar a probabilidades de observar as classes dado cada categoria do atributo 
 
 Uma vez que foi calculado o ganho de informação gerado pelo atributo *Tempo*, o mesmo precisa ser feito para o atributo *Vento*, *Temperatura* e *Umidade*. No caso dos dois últimos, como eles são atributos contínuos, alguma estratégia precisa ser utilizada para permitir a divisão desse atributo em partições.
 
-As estratégias mais utilizadas é a discretização ou a escolha de um ponto de corte binário. A discretização esta relacionada a transformação dos dados contínuos em categoricos por meio de estratégias como o [histograma](https://pt.wikipedia.org/wiki/Histograma) enquanto a escolha de um ponto de corte define um valor do conjunto de treinamento (normalmente utilizando uma função de mérito) que permite a construção de uma partição binária. Usualmente utiliza-se a segunda estratégia.
+As estratégias mais utilizadas é a discretização ou a escolha de um ponto de corte binário. A discretização está relacionada a transformação dos dados contínuos em categóricos por meio de estratégias como o [histograma](https://pt.wikipedia.org/wiki/Histograma) enquanto a escolha de um ponto de corte define um valor do conjunto de treinamento (normalmente utilizando uma função de mérito) que permite a construção de uma partição binária. Usualmente utiliza-se a segunda estratégia.
 
 No exemplo da base *Jogar Tênis*, um ponto de corte interessante para o atributo *Temperatura* é o valor 70.5. Esse valor permite separar as amostrar em partições interessantes. A seguir os passos 2, 3 e 4 são repetidos:
 
@@ -255,7 +255,7 @@ Sumarizando o ganho de informação para todos os atributos temos os seguintes v
 <img src="https://render.githubusercontent.com/render/math?math=IG(Umidade) = 0.940 - 0.789 = 0.151 bit">
 <img src="https://render.githubusercontent.com/render/math?math=IG(Vento) = 0.940 - 0.892 = 0.048 bit">
 
-Portanto podemos concluir que o atributo *Tempo* é que gera maior redução no ganho de informação. Logo o nó raiz da AD é composta pelo nó *Tempo* com 3 ramos, cada um relacionado a uma categoria desse atributo categórico (ensolarado, chuvoso e nublado). Como o algoritmo é baseado em dividir para conquistar, cada nó filho da árvore precisa ser construido baseado em sua partição dos dados. O processo se repete até que todos os nós sejam puros ou uma estratégia de poda seja aplicada.
+Portanto podemos concluir que o atributo *Tempo* é que gera maior redução no ganho de informação. Logo o nó raiz da AD é composta pelo nó *Tempo* com 3 ramos, cada um relacionado a uma categoria desse atributo categórico (ensolarado, chuvoso e nublado). Como o algoritmo é baseado em dividir para conquistar, cada nó filho da árvore precisa ser construído baseado em sua partição dos dados. O processo se repete até que todos os nós sejam puros ou uma estratégia de poda seja aplicada.
 
 ### Regras de Divisão para Regressão
 
@@ -267,13 +267,13 @@ Para estimar o mérito de uma partição, a medida *Standard Deviation Reduction
 
 <img src="https://render.githubusercontent.com/render/math?math=SDR(S) = sd(D, y) - \frac{n_L}{n} * sd(L, y) - \frac{n_R}{n} * sd(R, y)">
 
-Essa equação é aplicada para todos os atributos e todas as categorias ou pontos de corte escolhidos. Com isso podemos avaliar a redução da variância associada aos testes. Aquele teste que provocar maior redução será escolhido para compor a árvore.
+Essa equação é aplicada para todos os atributos e todas as categorias ou pontos de corte escolhidos. Com isso, podemos avaliar a redução da variância associada aos testes. Aquele teste que provocar maior redução será escolhido para compor a árvore.
 
 ### Estratégia de poda
 
-As estatísticas calculadas em nós mais razos em uma AD costumam ser os mais importantes enquanto estatísticas de nós mais profundos costumam ter níveis de importancia menores. Isso se dá porque os nós mais razos refletem os conceitos mais gerais enquanto os mais profundos os conceitos mais específicos e normalmente relacionados ao [super ajustamento](https://pt.wikipedia.org/wiki/Sobreajuste). O super ajustamento esta diretamente relacionado ao tamanho da árvore. Quanto maior, mais super ajustada e mais difícil de ser interpretada. Portanto, pordar uam árvore, que é trocar nós profundos por nós folhas, pode ajudar a minimizar esse problema.
+As estatísticas calculadas em nós mais razos em uma AD costumam ser os mais importantes enquanto estatísticas de nós mais profundos costumam ter níveis de importância menores. Isso se dá porque os nós mais rasos refletem os conceitos mais gerais enquanto os mais profundos, os conceitos mais específicos e normalmente relacionados ao [super ajustamento](https://pt.wikipedia.org/wiki/Sobreajuste). O super ajustamento está diretamente relacionado ao tamanho da árvore. Quanto maior, mais super ajustada e mais difícil de ser interpretada. Portanto, podar uma árvore, que é trocar nós profundos por nós folhas, pode ajudar a minimizar esse problema.
 
-A troca dos nós mais profundos por folhas pode causar a classificação erronea de alguns exemplos do conjunto de treinamento. Apensar de parecer contra-intuitivo, isso pode melhorar o desempenho para exemplos novos nunca antes vistos. Os métodos de poda mais conhecidos são: pré-poda e pós-poda. Enquanto a pré-poda é realizada durante a construção da árvore, a pós-poda é realizada depois da construção da árvore.
+A troca dos nós mais profundos por folhas pode causar a classificação errônea de alguns exemplos do conjunto de treinamento. Apensar de parecer contra-intuitivo, isso pode melhorar o desempenho para exemplos novos nunca antes vistos. Os métodos de poda mais conhecidos são: pré-poda e pós-poda. Enquanto a pré-poda é realizada durante a construção da árvore, a pós-poda é realizada depois da construção da árvore.
 
 ## _Bootstrap_
 
