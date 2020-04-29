@@ -143,7 +143,7 @@ O algoritmo de AD é mostrado na Figura a seguir. A entrada para a função é o
 
 É ressaltar que a geração de uma árvore minimal é um problema [NP-completo](https://pt.wikipedia.org/wiki/NP-completo). Os algoritmos exploram heurísticas que localmente executam pesquisa um passo a frente. Uma vez que uma decisão é tomada ela nunca é desfeita. Isso pode gerar uma solução ótima localmente, o que pode estar longe do [ótimo global](https://pt.wikipedia.org/wiki/Algoritmo_guloso).
 
-### Regras de Divisão para Classificação
+### Regras de Divisão
 
 Considere um nó *t* de divisão de uma AD em que a probabilidade de observar exemplos de classe c<sub>i</sub> é dado por p<sub>i</sub>. Portanto a probabilidade de observar todas as classes é p<sub>1</sub>,p<sub>2</sub>,...p<sub>n</sub> então a impureza sobre um nó *t* é uma função sobre a proporção da classe daquele nó <img src="https://render.githubusercontent.com/render/math?math=i(t) = \phi(p_1,p_2,...p_n)">. Portanto a redução de impureza gerado pela divisão S de um conjuntos de treinamento em dois subconjuntos L e R pode ser medida como:
 
@@ -256,18 +256,6 @@ Sumarizando o ganho de informação para todos os atributos temos os seguintes v
 <img src="https://render.githubusercontent.com/render/math?math=IG(Vento) = 0.940 - 0.892 = 0.048 bit">
 
 Portanto podemos concluir que o atributo *Tempo* é que gera maior redução no ganho de informação. Logo o nó raiz da AD é composta pelo nó *Tempo* com 3 ramos, cada um relacionado a uma categoria desse atributo categórico (ensolarado, chuvoso e nublado). Como o algoritmo é baseado em dividir para conquistar, cada nó filho da árvore precisa ser construído baseado em sua partição dos dados. O processo se repete até que todos os nós sejam puros ou uma estratégia de poda seja aplicada.
-
-### Regras de Divisão para Regressão
-
-A construção de uma AR é em tudo semelhante à construção de uma AD, tendo em conta a função de custo a minimizar que normalmente é o erro quadrático. Por esse motivo, a constante associada às folhas de uma AR é a média dos valores do atributo alvo dos exemplos de treinamento que caem em uma folha. A variância do atributo alvo é dado pela equação a seguir aonde **D** representa o conjunto de treinamento, *n* o número de exemplos, *y<sub>i</sub>* o valor do exemplo *i* e *y* o valor médio.
-
-<img src="https://render.githubusercontent.com/render/math?math=sd(D,y) = \sqrt{\frac{1}{n} * \sum_{i=1}^{n} (y_i - y)^2}">
-
-Para estimar o mérito de uma partição, a medida *Standard Deviation Reduction* (SDR) é bastante utilizada. Assumindo que o teste do atributo A verifica se ele é menor do que um determinado valor, os exemplos do conjunto **D** serão divididos em partições L e R de tamanhos n<sub>L</sub> e n<sub>R</sub>, respectivamente. Pode-se estimar a redução em variância obtida pela aplicação do teste como:
-
-<img src="https://render.githubusercontent.com/render/math?math=SDR(S) = sd(D, y) - \frac{n_L}{n} * sd(L, y) - \frac{n_R}{n} * sd(R, y)">
-
-Essa equação é aplicada para todos os atributos e todas as categorias ou pontos de corte escolhidos. Com isso, podemos avaliar a redução da variância associada aos testes. Aquele teste que provocar maior redução será escolhido para compor a árvore.
 
 ### Estratégia de poda
 
