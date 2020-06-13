@@ -6,4 +6,4 @@ Os algoritmos de classificação abordados são:
 * [Naive Bayes](nb)
 * [k-Vizinhos Mais Próximos](knn)
 * [Florestas Aleatórias](rf)
-* [Redes Neurais Artificiais](rna)
+* [Redes Neurais Artificiais](rna/RNA.ipynb)
