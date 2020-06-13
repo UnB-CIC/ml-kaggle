@@ -2,8 +2,8 @@
 
 Os algoritmos de classificação abordados são:
 
-* [Árvore de Decisão](class/dt)
-* [Naive Bayes](class/nb)
-* [k-Vizinhos Mais Próximos](class/knn)
-* [Florestas Aleatórias](class/rf)
-* [Rede Neural Artificial](class/rna)
+* [Árvore de Decisão](dt)
+* [Naive Bayes](nb)
+* [k-Vizinhos Mais Próximos](knn)
+* [Florestas Aleatórias](rf)
+* [Redes Neurais Artificiais](rna)
